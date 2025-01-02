@@ -1,1 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+/* null */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: transparent;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Montserrat";
+  font-size: medium;
+  background: #9a9a9a;
+  color: var(--black-color);
+
+  --black-color: #000000;
+  --grey-color: rgb(0, 0, 0, 0.6);
+  --grey-light-color: rgb(0, 0, 0, 0.4);
+  --yellow-color: #ffc633;
+  --white-color: white;
+  --red-color: #ff3333;
+  --red-light-color: rgb(255, 51, 51, 0.1);
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 4rem;
+}
+
+h2 {
+  font-weight: 900;
+  font-size: 3rem;
+}
+
+p,
+.text {
+  color: var(--grey-color);
+}
+
+.title__big {
+  font-weight: 700;
+  font-size: 2.5rem; /* 40px */
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.25rem; /* 20px */
+}
+
+.container {
+  max-width: 80rem; /* 1280px */
+  padding: 0 1rem; /* 1rem = 16px */
+}
