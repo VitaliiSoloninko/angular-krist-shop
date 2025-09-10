@@ -1,0 +1,68 @@
+.product-card {
+  background: #f7f6f6;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 16px;
+  width: 295px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-image {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.product-info {
+  width: 100%;
+}
+.product-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+.product-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.star {
+  font-size: 1.1rem;
+  color: #ffc107;
+  margin-right: 2px;
+}
+.star.empty {
+  color: #e0e0e0;
+}
+.star.half {
+  color: #ffc107;
+  /* Optionally use a half-star SVG for more accuracy */
+}
+.rating-value {
+  font-size: 0.95rem;
+  color: #555;
+  margin-left: 6px;
+}
+.product-pricing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.product-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.product-old-price {
+  font-size: 1.1rem;
+  color: #aaa;
+  text-decoration: line-through;
+}
+.product-discount {
+  background: #ffe6e6;
+  color: #e57373;
+  border-radius: 16px;
+  padding: 2px 10px;
+  font-size: 1rem;
+  font-weight: 500;
+}
