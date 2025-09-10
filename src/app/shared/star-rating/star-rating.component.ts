@@ -1,14 +1,13 @@
-import { NgFor, NgIf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 
 @Component({
   selector: 'app-star-rating',
-  imports: [NgFor, NgIf],
+  imports: [],
   templateUrl: './star-rating.component.html',
   styleUrl: './star-rating.component.scss',
 })
 export class StarRatingComponent {
-  @Input() rating: number = 0;
+  rating = input<number>(0);
 
   getStarsArray(): number[] {
     return [1, 2, 3, 4, 5];
