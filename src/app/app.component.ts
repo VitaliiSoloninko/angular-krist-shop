@@ -1,19 +1,21 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { ProductCardComponent } from './product-card.component';
+import { Product } from './entities/product/model/product';
+import { ProductCardComponent } from './entities/product/ui/product-card/product-card.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ProductCardComponent, NgFor],
+  imports: [NgFor, ProductCardComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   imageUrl = '/images/products/';
 
-  products = [
+  products: Product[] = [
     {
+      id: 1,
       image: this.imageUrl + '1.jpg',
       title: 'Gradient Graphic T-shirt',
       rating: 3.5,
@@ -22,6 +24,7 @@ export class AppComponent {
       discount: null,
     },
     {
+      id: 2,
       image: this.imageUrl + '2.jpg',
       title: 'Polo with Tipping Details',
       rating: 4.5,
@@ -30,6 +33,7 @@ export class AppComponent {
       discount: null,
     },
     {
+      id: 3,
       image: this.imageUrl + '3.jpg',
       title: 'Black Striped T-shirt',
       rating: 5.0,
@@ -38,6 +42,7 @@ export class AppComponent {
       discount: 30,
     },
     {
+      id: 4,
       image: this.imageUrl + '4.jpg',
       title: 'Skinny Fit Jeans',
       rating: 3.5,
@@ -46,6 +51,7 @@ export class AppComponent {
       discount: 20,
     },
     {
+      id: 5,
       image: this.imageUrl + '5.jpg',
       title: 'Checkered Shirt',
       rating: 4.5,
@@ -54,6 +60,7 @@ export class AppComponent {
       discount: null,
     },
     {
+      id: 6,
       image: this.imageUrl + '6.jpg',
       title: 'Sleeve Striped T-shirt',
       rating: 4.5,
@@ -62,6 +69,7 @@ export class AppComponent {
       discount: 30,
     },
     {
+      id: 7,
       image: this.imageUrl + '7.jpg',
       title: 'Vertical Striped Shirt',
       rating: 5.0,
@@ -70,6 +78,7 @@ export class AppComponent {
       discount: 20,
     },
     {
+      id: 8,
       image: this.imageUrl + '8.jpg',
       title: 'Courage Graphic T-shirt',
       rating: 4.0,
@@ -78,6 +87,7 @@ export class AppComponent {
       discount: null,
     },
     {
+      id: 9,
       image: this.imageUrl + '9.jpg',
       title: 'Loose Fit Bermuda Shorts',
       rating: 3.0,

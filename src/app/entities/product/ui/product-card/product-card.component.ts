@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { Product } from '../../model/product';
 import { StarRatingComponent } from '../../../../shared/star-rating/star-rating.component';
 
@@ -9,5 +9,5 @@ import { StarRatingComponent } from '../../../../shared/star-rating/star-rating.
   styleUrl: './product-card.component.scss',
 })
 export class ProductCardComponent {
-  @Input() product: Product = {} as Product;
+  product = input<Product>({} as Product);
 }

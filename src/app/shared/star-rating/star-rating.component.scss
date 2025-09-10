@@ -1,0 +1,12 @@
+.star {
+  font-size: 1.1rem;
+  color: #ffc107;
+  margin-right: 2px;
+}
+.star.empty {
+  color: #e0e0e0;
+}
+.star.half {
+  color: #ffc107;
+  /* Optionally use a half-star SVG for more accuracy */
+}
