@@ -1,4 +1,8 @@
 <div class="wrapper">
   <h1>Krist Shop</h1>
 </div>
-<app-product-card [product]="product"></app-product-card>
+<div class="products-grid">
+  <ng-container *ngFor="let product of products">
+    <app-product-card [product]="product"></app-product-card>
+  </ng-container>
+</div>

@@ -14,8 +14,8 @@ export class ProductCardComponent {
     title: string;
     rating: number;
     price: number;
-    oldPrice: number;
-    discount: number;
+    oldPrice?: number | null;
+    discount?: number | null;
   };
 
   getStarsArray(): number[] {
