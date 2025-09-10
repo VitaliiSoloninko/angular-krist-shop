@@ -1,0 +1,8 @@
+<div class="star-rating">
+  <ng-container *ngFor="let star of getStarsArray(); let i = index">
+    <span *ngIf="rating >= i + 1" class="star full">&#9733;</span>
+    <span *ngIf="rating < i + 1 && rating > i" class="star half">&#9733;</span>
+    <span *ngIf="rating <= i" class="star empty">&#9734;</span>
+  </ng-container>
+  <span class="rating-value">{{ rating }}/5</span>
+</div>
