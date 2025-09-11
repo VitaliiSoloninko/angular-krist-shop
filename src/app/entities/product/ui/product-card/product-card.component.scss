@@ -1,8 +1,4 @@
 .product-card {
-  background: #f7f6f6;
-  border-radius: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  padding: 16px;
   width: 295px;
   display: flex;
   flex-direction: column;
@@ -10,48 +6,43 @@
 }
 .product-image {
   width: 100%;
-  max-width: 250px;
-  border-radius: 12px;
-  margin-bottom: 12px;
+  height: 298px;
+  border-radius: 20px;
+  margin-bottom: 16px;
 }
 .product-info {
   width: 100%;
 }
 .product-title {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin: 0 0 8px 0;
+  margin-bottom: 8px;
+  line-height: auto;
 }
 .product-rating {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
 }
-
-.rating-value {
-  font-size: 0.95rem;
-  color: #555;
-  margin-left: 6px;
-}
 .product-pricing {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 .product-price {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .product-old-price {
-  font-size: 1.1rem;
-  color: #aaa;
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0, 0.4);
   text-decoration: line-through;
 }
 .product-discount {
-  background: #ffe6e6;
-  color: #e57373;
-  border-radius: 16px;
-  padding: 2px 10px;
-  font-size: 1rem;
+  background: rgb(255, 51, 51, 0.1);
+  color: #ff3333;
+  border-radius: 62px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
   font-weight: 500;
 }
