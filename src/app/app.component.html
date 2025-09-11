@@ -1,8 +1,9 @@
 <div class="wrapper">
-  <h1>Krist Shop</h1>
-</div>
-<div class="products-grid">
-  <ng-container *ngFor="let product of products">
-    <app-product-card [product]="product"></app-product-card>
-  </ng-container>
+  <img src="/images/logos/logo-big.svg" alt="Logo" />
+
+  <div class="products-grid">
+    <ng-container *ngFor="let product of products">
+      <app-product-card [product]="product"></app-product-card>
+    </ng-container>
+  </div>
 </div>
