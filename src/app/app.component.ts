@@ -2,11 +2,12 @@ import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { Product } from './entities/product/model/product';
 import { ProductCardComponent } from './entities/product/ui/product-card/product-card.component';
+import { ProductListComponent } from './entities/product/ui/product-list/product-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgFor, ProductCardComponent],
+  imports: [NgFor, ProductCardComponent, ProductListComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
