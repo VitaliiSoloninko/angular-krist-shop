@@ -1,5 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ProductFilterGroupComponent } from '../product-filter-group/product-filter-group.component';
 
 export interface FilterGroup {
   title: string;
@@ -9,7 +10,7 @@ export interface FilterGroup {
 
 @Component({
   selector: 'app-product-filters',
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, ProductFilterGroupComponent],
   templateUrl: './product-filters.component.html',
   styleUrl: './product-filters.component.scss',
 })

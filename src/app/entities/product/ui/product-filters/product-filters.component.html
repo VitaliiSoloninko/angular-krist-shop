@@ -5,23 +5,15 @@
       <img src="/images/svg/filters-icon.svg" alt="Filter Icon" />
     </span>
   </div>
-  <hr class="filters-divider" />
-
   <ng-container *ngIf="!collapsed">
     <ng-container *ngFor="let group of filterGroups">
-      <div class="filters-group-title">{{ group.title }}</div>
-      <ul class="filters-list">
-        <li
-          class="filters-item"
-          *ngFor="let option of group.options"
-          [class.selected]="selectedFilters[group.key] === option"
-          (click)="filterSelected.emit({ group: group.key, value: option })"
-        >
-          <span>{{ option }}</span>
-          <span class="filters-arrow">&#8250;</span>
-        </li>
-      </ul>
-      <hr class="filters-divider" />
+      <app-product-filter-group
+        [title]="group.title"
+        [options]="group.options"
+        [groupKey]="group.key"
+        [selectedValue]="selectedFilters[group.key]"
+        (select)="filterSelected.emit($event)"
+      ></app-product-filter-group>
     </ng-container>
   </ng-container>
 </div>
