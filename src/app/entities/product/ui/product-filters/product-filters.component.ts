@@ -1,15 +1,15 @@
-import { CommonModule } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export interface FilterGroup {
-  title: string; // Название группы фильтров (например, "Тип")
-  options: string[]; // Список опций (например, ["T-shirts", "Shorts"])
-  key: string; // Ключ для идентификации группы (например, "type")
+  title: string;
+  options: string[];
+  key: string;
 }
 
 @Component({
   selector: 'app-product-filters',
-  imports: [CommonModule],
+  imports: [NgFor, NgIf],
   templateUrl: './product-filters.component.html',
   styleUrl: './product-filters.component.scss',
 })
@@ -20,4 +20,10 @@ export class ProductFiltersComponent {
     group: string;
     value: string;
   }>();
+
+  collapsed = false;
+
+  toggleCollapse() {
+    this.collapsed = !this.collapsed;
+  }
 }
