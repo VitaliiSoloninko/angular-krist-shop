@@ -1,0 +1,41 @@
+<div class="filters-card">
+  <div class="filters-header">
+    <span class="filters-title">Filters</span>
+    <span class="filters-icon">
+      <!-- SVG иконка фильтра -->
+      <svg
+        width="28"
+        height="28"
+        fill="none"
+        stroke="#888"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="5" y1="7" x2="23" y2="7" />
+        <circle cx="17" cy="7" r="2" />
+        <line x1="5" y1="14" x2="23" y2="14" />
+        <circle cx="11" cy="14" r="2" />
+        <line x1="5" y1="21" x2="23" y2="21" />
+        <circle cx="17" cy="21" r="2" />
+      </svg>
+    </span>
+  </div>
+  <hr class="filters-divider" />
+
+  <ng-container *ngFor="let group of filterGroups">
+    <div class="filters-group-title">{{ group.title }}</div>
+    <ul class="filters-list">
+      <li
+        class="filters-item"
+        *ngFor="let option of group.options"
+        [class.selected]="selectedFilters[group.key] === option"
+        (click)="filterSelected.emit({ group: group.key, value: option })"
+      >
+        <span>{{ option }}</span>
+        <span class="filters-arrow">&#8250;</span>
+      </li>
+    </ul>
+    <hr class="filters-divider" />
+  </ng-container>
+</div>

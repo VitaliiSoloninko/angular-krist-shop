@@ -1,0 +1,77 @@
+.filters-card {
+  background: #fff;
+  border: 2px solid #ededed;
+  border-radius: 24px;
+  padding: 28px 28px 0 28px;
+  box-sizing: border-box;
+}
+
+.filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filters-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.filters-icon {
+  display: flex;
+  align-items: center;
+}
+
+.filters-divider {
+  border: none;
+  border-top: 1px solid #ededed;
+  margin: 20px 0;
+}
+
+.filters-group-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #888;
+  margin-bottom: 4px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filters-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filters-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  color: #757575;
+  padding: 12px 0;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  border-radius: 8px;
+}
+
+.filters-item.selected,
+.filters-item:hover {
+  color: #000;
+  background: #f5f5f5;
+}
+
+.filters-arrow {
+  font-size: 1.6rem;
+  color: #888;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .filters-card {
+    border-radius: 16px;
+    padding: 16px 12px 0 12px;
+  }
+}

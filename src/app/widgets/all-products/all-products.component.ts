@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { Product } from '../../entities/product/model/product';
+import {
+  FilterGroup,
+  ProductFiltersComponent,
+} from '../../entities/product/ui/product-filters/product-filters.component';
 import { ProductListComponent } from '../../entities/product/ui/product-list/product-list.component';
 
 @Component({
   selector: 'app-all-products',
-  imports: [ProductListComponent],
+  imports: [ProductListComponent, ProductFiltersComponent],
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.scss',
 })
@@ -92,6 +96,24 @@ export class AllProductsComponent {
       price: 80,
       oldPrice: null,
       discount: null,
+    },
+  ];
+
+  filterGroups: FilterGroup[] = [
+    {
+      title: 'Types',
+      key: 'type',
+      options: ['T-shirts', 'Shorts', 'Shirts', 'Hoodie', 'Jeans'],
+    },
+    {
+      title: 'Brands',
+      key: 'brand',
+      options: ['Versage', 'Zara', 'Cucci', 'Prada', 'Calvin Klein', 'H&M'],
+    },
+    {
+      title: 'Styles',
+      key: 'style',
+      options: ['Casual', 'Formal', 'Party', 'Gum'],
     },
   ];
 }
