@@ -1,7 +1,13 @@
 <div class="products-layout">
-  <app-product-filters [filterGroups]="filterGroups"></app-product-filters>
+  <app-product-filters
+    [filterGroups]="filterGroups"
+    [selectedFilters]="selectedFilters"
+    (filterSelected)="onFilterSelected($event)"
+  ></app-product-filters>
   <main class="products">
-    <app-product-list [products]="products"></app-product-list>
-    <div class="products-count">Total products: {{ products.length }}</div>
+    <app-product-list [products]="filteredProducts"></app-product-list>
+    <div class="products-count">
+      Total products: {{ filteredProducts.length }}
+    </div>
   </main>
 </div>
