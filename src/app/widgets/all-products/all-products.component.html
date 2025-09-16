@@ -6,9 +6,15 @@
     (reset)="resetFilters()"
   ></app-product-filters>
   <main class="products">
+    @if(filteredProducts.length > 0){
     <app-product-list [products]="filteredProducts"></app-product-list>
     <div class="products-count">
       Total products: {{ filteredProducts.length }}
     </div>
+    } @else {
+    <div class="no-products-message">
+      No products found for the selected filters.
+    </div>
+    }
   </main>
 </div>
