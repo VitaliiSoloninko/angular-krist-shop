@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FILTER_GROUPS } from '../../data/filter-groups.data';
-import { PRODUCTS } from '../../data/products.data';
+import { PRODUCTS_DATA } from '../../data/products.data';
 import { ProductFiltersComponent } from '../../entities/product/ui/product-filters/product-filters.component';
 import { ProductListComponent } from '../../entities/product/ui/product-list/product-list.component';
 
@@ -11,6 +11,6 @@ import { ProductListComponent } from '../../entities/product/ui/product-list/pro
   styleUrl: './all-products.component.scss',
 })
 export class AllProductsComponent {
-  products = PRODUCTS;
+  products = PRODUCTS_DATA.rows;
   filterGroups = FILTER_GROUPS;
 }

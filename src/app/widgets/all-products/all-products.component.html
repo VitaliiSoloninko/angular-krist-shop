@@ -2,5 +2,6 @@
   <app-product-filters [filterGroups]="filterGroups"></app-product-filters>
   <main class="products">
     <app-product-list [products]="products"></app-product-list>
+    <div class="products-count">Total products: {{ products.length }}</div>
   </main>
 </div>

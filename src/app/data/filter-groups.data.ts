@@ -1,19 +1,21 @@
 import { FilterGroup } from '../entities/product/ui/product-filters/product-filters.component';
+import { BRANDS } from './brands.data';
+import { TYPES } from './types.data';
 
 export const FILTER_GROUPS: FilterGroup[] = [
   {
     title: 'Types',
     key: 'type',
-    options: ['T-shirts', 'Shorts', 'Shirts', 'Hoodie', 'Jeans'],
+    options: TYPES.map((t) => t.name),
   },
   {
     title: 'Brands',
     key: 'brand',
-    options: ['Versage', 'Zara', 'Cucci', 'Prada', 'Calvin Klein', 'H&M'],
+    options: BRANDS.map((b) => b.name),
   },
-  {
-    title: 'Styles',
-    key: 'style',
-    options: ['Casual', 'Formal', 'Party', 'Gum'],
-  },
+  // {
+  //   title: 'Styles',
+  //   key: 'style',
+  //   options: ['Casual', 'Formal', 'Party', 'Gum'],
+  // },
 ];
