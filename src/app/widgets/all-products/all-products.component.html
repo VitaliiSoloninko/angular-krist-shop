@@ -3,6 +3,7 @@
     [filterGroups]="filterGroups"
     [selectedFilters]="selectedFilters"
     (filterSelected)="onFilterSelected($event)"
+    (reset)="resetFilters()"
   ></app-product-filters>
   <main class="products">
     <app-product-list [products]="filteredProducts"></app-product-list>

@@ -15,5 +15,8 @@
         (select)="filterSelected.emit($event)"
       ></app-product-filter-group>
     </ng-container>
+    <button class="reset-filters-btn" (click)="resetFilters()">
+      Reset filters
+    </button>
   </ng-container>
 </div>

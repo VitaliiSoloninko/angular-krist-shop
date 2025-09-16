@@ -36,3 +36,19 @@
     padding: 16px 12px 0 12px;
   }
 }
+
+.reset-filters-btn {
+  margin: 20px 0 10px 0;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #ededed;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.reset-filters-btn:hover {
+  background: #d3d3d3;
+}

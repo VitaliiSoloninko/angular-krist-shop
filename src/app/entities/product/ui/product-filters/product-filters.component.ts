@@ -21,10 +21,15 @@ export class ProductFiltersComponent {
     group: string;
     value: string;
   }>();
+  @Output() reset = new EventEmitter<void>();
 
   collapsed = false;
 
   toggleCollapse() {
     this.collapsed = !this.collapsed;
+  }
+
+  resetFilters() {
+    this.reset.emit();
   }
 }

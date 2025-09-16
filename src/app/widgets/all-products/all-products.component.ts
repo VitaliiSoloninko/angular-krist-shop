@@ -39,4 +39,9 @@ export class AllProductsComponent {
       return true;
     });
   }
+
+  resetFilters() {
+    this.selectedFilters = {};
+    this.applyFilters();
+  }
 }
