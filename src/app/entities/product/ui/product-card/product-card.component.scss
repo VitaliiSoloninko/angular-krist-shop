@@ -1,15 +1,33 @@
 .product-card {
-  width: 295px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 295px;
 }
+
 .product-image {
-  width: 100%;
-  height: 298px;
-  border-radius: 20px;
-  margin-bottom: 16px;
+  overflow: hidden;
+  opacity: 0.9;
+  transition: opacity 0.3s ease 0s;
+  cursor: pointer;
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 1;
+      img {
+        transform: scale(1.02);
+      }
+    }
+  }
+  @media (any-hover: none) {
+    opacity: 1;
+  }
 }
+.product-image img {
+  max-width: 100%;
+  object-position: top;
+  transition: transform 0.8s ease 0s;
+}
+
 .product-info {
   width: 100%;
 }

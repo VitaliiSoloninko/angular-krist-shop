@@ -13,9 +13,4 @@ export const FILTER_GROUPS: FilterGroup[] = [
     key: 'brand',
     options: BRANDS.map((b) => b.name),
   },
-  // {
-  //   title: 'Styles',
-  //   key: 'style',
-  //   options: ['Casual', 'Formal', 'Party', 'Gum'],
-  // },
 ];
