@@ -55,7 +55,7 @@ export class AllProductsComponent {
     this.currentPage = 1;
   }
 
-  pageSize = 4;
+  pageSize = 10;
   currentPage = 1;
 
   get pagedProducts() {
