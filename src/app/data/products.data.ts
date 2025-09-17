@@ -7,7 +7,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
     {
       id: 1,
       img: imgUrl + '1.jpg',
-      name: 'Gradient Graphic T-shirt (type Casual, brand Zara)',
+      name: 'Gradient Graphic T-shirt',
       rating: 3.5,
       price: 145,
       oldPrice: null,
@@ -18,7 +18,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
     {
       id: 2,
       img: imgUrl + '2.jpg',
-      name: 'Polo with Tipping Details (type Formal, brand Cucci)',
+      name: 'Polo with Tipping Details',
       rating: 4.5,
       price: 180,
       oldPrice: null,
@@ -29,7 +29,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
     {
       id: 3,
       img: imgUrl + '3.jpg',
-      name: 'Black Striped T-shirt (type Casual, brand Cucci)',
+      name: 'Black Striped T-shirt',
       rating: 5.0,
       price: 120,
       oldPrice: 150,
@@ -40,7 +40,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
     {
       id: 4,
       img: imgUrl + '4.jpg',
-      name: 'Skinny Fit Jeans (type Formal, brand Zara)',
+      name: 'Skinny Fit Jeans',
       rating: 3.5,
       price: 240,
       oldPrice: 260,

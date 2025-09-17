@@ -10,7 +10,7 @@
   <div class="products">
     <main>
       @if(filteredProducts.length > 0){
-      <app-product-list [products]="filteredProducts"></app-product-list>
+      <app-product-list [products]="pagedProducts"></app-product-list>
       <div class="products-count">
         Total products: {{ filteredProducts.length }}
       </div>
@@ -20,5 +20,11 @@
       </div>
       }
     </main>
+    <app-pagination
+      [totalItems]="filteredProducts.length"
+      [pageSize]="pageSize"
+      [currentPage]="currentPage"
+      (pageChange)="goToPage($event)"
+    ></app-pagination>
   </div>
 </div>
