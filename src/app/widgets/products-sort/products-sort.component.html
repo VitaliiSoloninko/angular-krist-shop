@@ -1,0 +1,24 @@
+<div class="products-sort">
+  <span>Sort by:</span>
+  <button
+    [class.active]="sortBy === 'price-asc'"
+    (click)="setSort('price-asc')"
+  >
+    Price ↑
+  </button>
+  <button
+    [class.active]="sortBy === 'price-desc'"
+    (click)="setSort('price-desc')"
+  >
+    Price ↓
+  </button>
+  <button [class.active]="sortBy === 'name-asc'" (click)="setSort('name-asc')">
+    Name A→Z
+  </button>
+  <button
+    [class.active]="sortBy === 'name-desc'"
+    (click)="setSort('name-desc')"
+  >
+    Name Z→A
+  </button>
+</div>

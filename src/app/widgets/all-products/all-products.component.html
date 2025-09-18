@@ -8,6 +8,12 @@
     ></app-product-filters>
   </div>
   <div class="products">
+    <div class="products-header">
+      <app-products-sort
+        [sortBy]="sortBy"
+        (sortChange)="sortProducts($event)"
+      ></app-products-sort>
+    </div>
     <main>
       @if(filteredProducts.length > 0){
       <app-product-list [products]="pagedProducts"></app-product-list>
