@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
-import { BRANDS } from '../../data/brands.data';
 import { FILTER_GROUPS } from '../../data/filter-groups.data';
 import { PRODUCTS_DATA } from '../../data/products.data';
 import { TYPES } from '../../data/types.data';
+import { BRANDS } from '../../data/brands.data';
 import { ProductFiltersComponent } from '../../entities/product/ui/product-filters/product-filters.component';
+import { ProductsSortComponent } from '../../entities/product/ui/products-sort/products-sort.component';
 import { ProductListComponent } from '../../entities/product/ui/product-list/product-list.component';
 import { PaginationComponent } from '../../shared/pagination/pagination.component';
-import { ProductsSortComponent } from '../products-sort/products-sort.component';
 
 @Component({
-  selector: 'app-all-products',
+  selector: 'app-products-catalog',
   imports: [
-    ProductListComponent,
     ProductFiltersComponent,
-    PaginationComponent,
     ProductsSortComponent,
+    ProductListComponent,
+    PaginationComponent,
   ],
-  templateUrl: './all-products.component.html',
-  styleUrl: './all-products.component.scss',
+  templateUrl: './products-catalog.component.html',
+  styleUrl: './products-catalog.component.scss',
 })
-export class AllProductsComponent {
+export class ProductsCatalogComponent {
   filterGroups = FILTER_GROUPS;
   selectedFilters: { [key: string]: string } = {};
 

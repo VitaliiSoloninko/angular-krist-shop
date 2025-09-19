@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { AllProductsComponent } from '../../widgets/all-products/all-products.component';
+import { ProductsCatalogComponent } from '../../widgets/products-catalog/products-catalog.component';
 
 @Component({
   selector: 'app-product-catalog-page',
-  imports: [AllProductsComponent],
+  imports: [ProductsCatalogComponent],
   templateUrl: './product-catalog-page.component.html',
   styleUrl: './product-catalog-page.component.scss',
 })
