@@ -1,17 +1,21 @@
 .pagination {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
   gap: 8px;
-  margin: 24px 0;
 }
 .pagination button {
   background: #fff;
-  border: 1px solid #ddd;
-  padding: 8px 16px;
-  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid var(--gray-color-light);
+  padding: 8px 14px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .pagination button.active {
   background: #eee;
@@ -21,4 +25,8 @@
 .pagination button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+.pagination-pages {
+  display: flex;
+  gap: 8px;
 }

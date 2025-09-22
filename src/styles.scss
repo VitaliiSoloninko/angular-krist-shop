@@ -3,7 +3,6 @@
 :root {
   --primary-color: #000000;
   --primary-hover-color: rgb(0, 0, 0, 0.8);
-
   --gray-color-light: rgb(0, 0, 0, 0.1);
 }
 
@@ -16,4 +15,8 @@
 
 .center {
   text-align: center;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
 }

@@ -1,19 +1,22 @@
 @if (totalPages > 1) {
-
 <nav class="pagination">
   <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
-    &larr; Previous
+    <img src="/images/svg/arrow-left.svg" alt="&larr;" />
+    Previous
   </button>
-  @for (page of pages; track page) {
-  <button (click)="goToPage(page)" [class.active]="page === currentPage">
-    {{ page }}
-  </button>
-  }
+  <div class="pagination-pages">
+    @for (page of pages; track page) {
+    <button (click)="goToPage(page)" [class.active]="page === currentPage">
+      {{ page }}
+    </button>
+    }
+  </div>
   <button
     (click)="goToPage(currentPage + 1)"
     [disabled]="currentPage === totalPages"
   >
-    Next &rarr;
+    Next
+    <img src="/images/svg/arrow-right.svg" alt="&rarr;" />
   </button>
 </nav>
 }
