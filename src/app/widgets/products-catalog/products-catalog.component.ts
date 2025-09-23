@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { BRANDS } from '../../data/brands.data';
 import { FILTER_GROUPS } from '../../data/filter-groups.data';
 import { PRODUCTS_DATA } from '../../data/products.data';
 import { TYPES } from '../../data/types.data';
-import { BRANDS } from '../../data/brands.data';
 import { ProductFiltersComponent } from '../../entities/product/ui/product-filters/product-filters.component';
-import { ProductsSortComponent } from '../../entities/product/ui/products-sort/products-sort.component';
 import { ProductListComponent } from '../../entities/product/ui/product-list/product-list.component';
-import { PaginationComponent } from '../../shared/pagination/pagination.component';
+import { ProductsSortComponent } from '../../entities/product/ui/products-sort/products-sort.component';
+import { ProductPaginationComponent } from '../../features/product/product-pagination/product-pagination.component';
 
 @Component({
   selector: 'app-products-catalog',
@@ -14,7 +14,7 @@ import { PaginationComponent } from '../../shared/pagination/pagination.componen
     ProductFiltersComponent,
     ProductsSortComponent,
     ProductListComponent,
-    PaginationComponent,
+    ProductPaginationComponent,
   ],
   templateUrl: './products-catalog.component.html',
   styleUrl: './products-catalog.component.scss',
