@@ -9,10 +9,15 @@
   </div>
   <div class="products">
     <div class="products-header">
-      <app-product-sort
-        [sortBy]="sortBy"
-        (sortChange)="sortProducts($event)"
-      ></app-product-sort>
+      <div class="products-search">
+        <app-product-search></app-product-search>
+      </div>
+      <div class="products-sort">
+        <app-product-sort
+          [sortBy]="sortBy"
+          (sortChange)="sortProducts($event)"
+        ></app-product-sort>
+      </div>
     </div>
     <main>
       @if(filteredProducts.length > 0){

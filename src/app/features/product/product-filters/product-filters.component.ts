@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
 import { ProductFilterGroupComponent } from '../product-filter-group/product-filter-group.component';
 export interface FilterGroup {
   title: string;
@@ -22,6 +28,19 @@ export class ProductFiltersComponent {
   @Output() reset = new EventEmitter<void>();
 
   collapsed = false;
+
+  ngOnInit() {
+    this.checkCollapse();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.checkCollapse();
+  }
+
+  private checkCollapse() {
+    this.collapsed = window.innerWidth <= 768;
+  }
 
   toggleCollapse() {
     this.collapsed = !this.collapsed;

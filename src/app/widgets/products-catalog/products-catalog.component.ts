@@ -7,6 +7,7 @@ import { ProductListComponent } from '../../entities/product/ui/product-list/pro
 import { ProductFiltersComponent } from '../../features/product/product-filters/product-filters.component';
 import { ProductPaginationComponent } from '../../features/product/product-pagination/product-pagination.component';
 import { ProductSortComponent } from '../../features/product/product-sort/product-sort.component';
+import { ProductSearchComponent } from '../../features/product/product-search/product-search.component';
 
 @Component({
   selector: 'app-products-catalog',
@@ -15,6 +16,7 @@ import { ProductSortComponent } from '../../features/product/product-sort/produc
     ProductListComponent,
     ProductPaginationComponent,
     ProductSortComponent,
+    ProductSearchComponent,
   ],
   templateUrl: './products-catalog.component.html',
   styleUrl: './products-catalog.component.scss',
