@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FilterGroupUiComponent } from '../../../../shared/ui/filter-group-ui/filter-group-ui.component';
+import { FilterGroupUiComponent } from '../../../shared/ui/filter-group-ui/filter-group-ui.component';
 
 @Component({
   selector: 'app-product-filter-group',

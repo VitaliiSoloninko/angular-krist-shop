@@ -3,8 +3,8 @@ import { BRANDS } from '../../data/brands.data';
 import { FILTER_GROUPS } from '../../data/filter-groups.data';
 import { PRODUCTS_DATA } from '../../data/products.data';
 import { TYPES } from '../../data/types.data';
-import { ProductFiltersComponent } from '../../entities/product/ui/product-filters/product-filters.component';
 import { ProductListComponent } from '../../entities/product/ui/product-list/product-list.component';
+import { ProductFiltersComponent } from '../../features/product/product-filters/product-filters.component';
 import { ProductPaginationComponent } from '../../features/product/product-pagination/product-pagination.component';
 import { ProductSortComponent } from '../../features/product/product-sort/product-sort.component';
 

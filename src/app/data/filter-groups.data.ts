@@ -1,4 +1,4 @@
-import { FilterGroup } from '../entities/product/ui/product-filters/product-filters.component';
+import { FilterGroup } from '../features/product/product-filters/product-filters.component';
 import { BRANDS } from './brands.data';
 import { TYPES } from './types.data';
 
