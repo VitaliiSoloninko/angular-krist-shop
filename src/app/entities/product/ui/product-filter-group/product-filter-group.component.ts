@@ -1,9 +1,9 @@
-import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FilterGroupUiComponent } from '../../../../shared/ui/filter-group-ui/filter-group-ui.component';
 
 @Component({
   selector: 'app-product-filter-group',
-  imports: [NgFor, NgIf],
+  imports: [FilterGroupUiComponent],
   templateUrl: './product-filter-group.component.html',
   styleUrl: './product-filter-group.component.scss',
 })
@@ -18,5 +18,9 @@ export class ProductFilterGroupComponent {
 
   toggle() {
     this.expanded = !this.expanded;
+  }
+
+  onSelect(event: { group: string; value: string }) {
+    this.select.emit(event);
   }
 }

@@ -29,6 +29,10 @@ export class ProductFiltersComponent {
     this.collapsed = !this.collapsed;
   }
 
+  onFilterSelected(event: { group: string; value: string }) {
+    this.filterSelected.emit(event);
+  }
+
   resetFilters() {
     this.reset.emit();
   }

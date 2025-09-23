@@ -5,18 +5,17 @@
       <img src="/images/svg/filters-icon.svg" alt="Filter Icon" />
     </span>
   </div>
-  <ng-container *ngIf="!collapsed">
-    <ng-container *ngFor="let group of filterGroups">
-      <app-product-filter-group
-        [title]="group.title"
-        [options]="group.options"
-        [groupKey]="group.key"
-        [selectedValue]="selectedFilters[group.key]"
-        (select)="filterSelected.emit($event)"
-      ></app-product-filter-group>
-    </ng-container>
-    <button class="reset-filters-btn" (click)="resetFilters()">
-      Reset filters
-    </button>
-  </ng-container>
+  @if (!collapsed) { @for (group of filterGroups; track group) {
+  <app-product-filter-group
+    [title]="group.title"
+    [options]="group.options"
+    [groupKey]="group.key"
+    [selectedValue]="selectedFilters[group.key]"
+    (select)="onFilterSelected($event)"
+  ></app-product-filter-group>
+  }
+  <button class="reset-filters-btn" (click)="resetFilters()">
+    Reset filters
+  </button>
+  }
 </div>
