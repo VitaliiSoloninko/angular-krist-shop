@@ -5,16 +5,16 @@ import { PRODUCTS_DATA } from '../../data/products.data';
 import { TYPES } from '../../data/types.data';
 import { ProductFiltersComponent } from '../../entities/product/ui/product-filters/product-filters.component';
 import { ProductListComponent } from '../../entities/product/ui/product-list/product-list.component';
-import { ProductsSortComponent } from '../../entities/product/ui/products-sort/products-sort.component';
 import { ProductPaginationComponent } from '../../features/product/product-pagination/product-pagination.component';
+import { ProductSortComponent } from '../../features/product/product-sort/product-sort.component';
 
 @Component({
   selector: 'app-products-catalog',
   imports: [
     ProductFiltersComponent,
-    ProductsSortComponent,
     ProductListComponent,
     ProductPaginationComponent,
+    ProductSortComponent,
   ],
   templateUrl: './products-catalog.component.html',
   styleUrl: './products-catalog.component.scss',
