@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PaginationComponent } from '../../../shared/pagination/pagination.component';
+import { PaginationComponent } from '../../../shared/ui/pagination/pagination.component';
 
 @Component({
   selector: 'app-product-pagination',

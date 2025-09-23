@@ -1,0 +1,15 @@
+<div class="sort-select-wrapper">
+  <label for="sort-select" class="sort-label">Sort by:</label>
+  <select
+    id="sort-select"
+    class="sort-select"
+    [value]="sortBy"
+    (change)="onSortChange($event)"
+  >
+    @for (option of sortOptions; track option) {
+    <option [value]="option.value">
+      {{ option.label }}
+    </option>
+    }
+  </select>
+</div>

@@ -1,0 +1,55 @@
+.sort-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.sort-select {
+  padding: 10px 42px 10px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-color-light);
+  background: #fff;
+  font-size: 1rem;
+  color: var(--primary-color);
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  appearance: none; // hide default arrow
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  background-image: none; // remove default arrow
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &:focus {
+    border-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.15);
+    outline: none;
+  }
+}
+
+.sort-select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+// Custom dropdown arrow
+.sort-select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  background: url("/images/svg/arrow-down.svg") no-repeat center/contain;
+}

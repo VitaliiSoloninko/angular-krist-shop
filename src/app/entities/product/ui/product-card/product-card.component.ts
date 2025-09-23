@@ -1,6 +1,6 @@
 import { Component, input, Input } from '@angular/core';
 import { Product } from '../../model/product';
-import { StarRatingComponent } from '../../../../shared/star-rating/star-rating.component';
+import { StarRatingComponent } from '../../../../shared/ui/star-rating/star-rating.component';
 
 @Component({
   selector: 'app-product-card',

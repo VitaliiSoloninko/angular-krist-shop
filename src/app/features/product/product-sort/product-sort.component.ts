@@ -1,9 +1,9 @@
-import { NgFor } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SortSelectComponent } from '../../../shared/ui/sort-select/sort-select.component';
 
 @Component({
   selector: 'app-product-sort',
-  imports: [NgFor],
+  imports: [SortSelectComponent],
   templateUrl: './product-sort.component.html',
   styleUrl: './product-sort.component.scss',
 })
@@ -17,9 +17,4 @@ export class ProductSortComponent {
     { value: 'name-asc', label: 'Name: A → Z' },
     { value: 'name-desc', label: 'Name: Z → A' },
   ];
-
-  onSortChange(event: Event) {
-    const value = (event.target as HTMLSelectElement).value;
-    this.sortChange.emit(value);
-  }
 }
