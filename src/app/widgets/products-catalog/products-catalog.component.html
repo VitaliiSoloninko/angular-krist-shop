@@ -10,7 +10,7 @@
   <div class="products">
     <div class="products-header">
       <div class="products-search">
-        <app-product-search></app-product-search>
+        <app-product-search (search)="onSearch($event)"></app-product-search>
       </div>
       <div class="products-sort">
         <app-product-sort
