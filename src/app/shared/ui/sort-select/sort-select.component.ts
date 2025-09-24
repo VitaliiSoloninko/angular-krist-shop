@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, Input, output } from '@angular/core';
 
 @Component({
   selector: 'app-sort-select',
@@ -7,9 +7,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './sort-select.component.scss',
 })
 export class SortSelectComponent {
-  @Input() sortBy: string = '';
-  @Input() sortOptions: { value: string; label: string }[] = [];
-  @Output() sortChange = new EventEmitter<string>();
+  sortBy = input<string>();
+  sortOptions = input<{ value: string; label: string }[]>([]);
+  sortChange = output<string>();
 
   onSortChange(event: Event) {
     const value = (event.target as HTMLSelectElement).value;

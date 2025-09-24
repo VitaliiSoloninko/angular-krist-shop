@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { SortSelectComponent } from '../../../shared/ui/sort-select/sort-select.component';
 
 @Component({
@@ -8,8 +8,8 @@ import { SortSelectComponent } from '../../../shared/ui/sort-select/sort-select.
   styleUrl: './product-sort.component.scss',
 })
 export class ProductSortComponent {
-  @Input() sortBy: string = 'price-asc';
-  @Output() sortChange = new EventEmitter<string>();
+  sortBy = input<string>('price-asc');
+  sortChange = output<string>();
 
   sortOptions = [
     { value: 'price-asc', label: 'Price: Low to High' },

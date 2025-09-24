@@ -3,10 +3,10 @@
   <select
     id="sort-select"
     class="sort-select"
-    [value]="sortBy"
+    [value]="sortBy()"
     (change)="onSortChange($event)"
   >
-    @for (option of sortOptions; track option) {
+    @for (option of sortOptions(); track option) {
     <option [value]="option.value">
       {{ option.label }}
     </option>
