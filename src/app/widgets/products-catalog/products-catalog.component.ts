@@ -94,7 +94,7 @@ export class ProductsCatalogComponent {
   }
 
   // -------------------- PAGINATION --------------------
-  pageSize = 10;
+  pageSize = 12;
   currentPage = 1;
 
   get pagedProducts() {
