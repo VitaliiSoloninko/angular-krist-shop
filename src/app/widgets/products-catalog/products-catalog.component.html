@@ -1,5 +1,5 @@
 <div class="products-layout">
-  <div class="product-filters">
+  <div class="products-filters-desktop">
     <app-product-filters
       [filterGroups]="filterGroups"
       [selectedFilters]="selectedFilters"
@@ -9,8 +9,13 @@
   </div>
   <div class="products">
     <div class="products-header">
-      <div class="products-search">
-        <app-product-search (search)="onSearch($event)"></app-product-search>
+      <div class="products-header-top">
+        <div class="products-search">
+          <app-product-search (search)="onSearch($event)"></app-product-search>
+        </div>
+        <div class="products-filters-mobile">
+          <img src="/images/svg/filters-icon.svg" alt="Filters" />
+        </div>
       </div>
       <div class="products-sort">
         <app-product-sort
