@@ -5,12 +5,12 @@
       <img src="/images/svg/filters-icon.svg" alt="Filter Icon" />
     </span>
   </div>
-  @if (!collapsed) { @for (group of filterGroups; track group) {
+  @if (!collapsed) { @for (group of filterGroups(); track group) {
   <app-product-filter-group
     [title]="group.title"
     [options]="group.options"
     [groupKey]="group.key"
-    [selectedValue]="selectedFilters[group.key]"
+    [selectedValue]="selectedFilters()?.[group.key] || null"
     (select)="onFilterSelected($event)"
   ></app-product-filter-group>
   }

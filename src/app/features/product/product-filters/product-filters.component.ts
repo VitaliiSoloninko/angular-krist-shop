@@ -1,10 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  HostListener,
-  Input,
-  Output,
-} from '@angular/core';
+import { Component, HostListener, input, output } from '@angular/core';
 import { ProductFilterGroupComponent } from '../product-filter-group/product-filter-group.component';
 export interface FilterGroup {
   title: string;
@@ -19,13 +13,11 @@ export interface FilterGroup {
   styleUrl: './product-filters.component.scss',
 })
 export class ProductFiltersComponent {
-  @Input() filterGroups: FilterGroup[] = [];
-  @Input() selectedFilters: { [key: string]: string } = {};
-  @Output() filterSelected = new EventEmitter<{
-    group: string;
-    value: string;
-  }>();
-  @Output() reset = new EventEmitter<void>();
+  filterGroups = input<FilterGroup[]>();
+  selectedFilters = input<{ [key: string]: string }>();
+
+  filterSelected = output<{ group: string; value: string }>();
+  reset = output<void>();
 
   collapsed = false;
 

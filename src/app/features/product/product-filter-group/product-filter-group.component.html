@@ -1,8 +1,8 @@
 <app-filter-group-ui
-  [title]="title"
-  [options]="options"
-  [selectedValue]="selectedValue || null"
-  [groupKey]="groupKey"
+  [title]="title()"
+  [options]="options()"
+  [selectedValue]="selectedValue()"
+  [groupKey]="groupKey()"
   [expanded]="expanded"
   (select)="onSelect($event)"
   (toggle)="toggle()"

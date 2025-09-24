@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { FilterGroupUiComponent } from '../../../shared/ui/filter-group-ui/filter-group-ui.component';
 
 @Component({
@@ -8,11 +8,11 @@ import { FilterGroupUiComponent } from '../../../shared/ui/filter-group-ui/filte
   styleUrl: './product-filter-group.component.scss',
 })
 export class ProductFilterGroupComponent {
-  @Input() title!: string;
-  @Input() options: string[] = [];
-  @Input() groupKey!: string;
-  @Input() selectedValue?: string;
-  @Output() select = new EventEmitter<{ group: string; value: string }>();
+  title = input<string>();
+  options = input<string[]>([]);
+  groupKey = input<string>('');
+  selectedValue = input<string | null>(null);
+  select = output<{ group: string; value: string }>();
 
   expanded = true;
 

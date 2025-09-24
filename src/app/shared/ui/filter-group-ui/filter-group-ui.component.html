@@ -1,20 +1,20 @@
 <hr class="filters-divider" />
 <div class="filters-group-title" (click)="onToggle()">
-  {{ title }}
+  {{ title() }}
   <span class="arrow">
-    <div class="arrow-icon" [class.arrow-top]="expanded">
+    <div class="arrow-icon" [class.arrow-top]="expanded()">
       <img src="/images/svg/arrow.svg" />
     </div>
   </span>
 </div>
 
-@if (expanded) {
+@if (expanded()) {
 <ul class="filters-list">
-  @for (option of options; track option) {
+  @for (option of options(); track option) {
   <li
     class="filters-item"
-    [class.selected]="selectedValue === option"
-    (click)="select.emit({ group: groupKey, value: option })"
+    [class.selected]="selectedValue() === option"
+    (click)="select.emit({ group: groupKey(), value: option })"
   >
     <span>{{ option }}</span>
     <span class="filters-arrow">
