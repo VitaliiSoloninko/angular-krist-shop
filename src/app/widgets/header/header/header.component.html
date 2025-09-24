@@ -1,4 +1,12 @@
 <header class="main-header">
+  <div class="burger-wrapper">
+    <app-burger-menu
+      [isOpen]="isMobileMenuOpen"
+      (toggle)="toggleMobileMenu()"
+      (close)="closeMobileMenu()"
+    >
+    </app-burger-menu>
+  </div>
   <div class="logo" routerLink="/">
     <img src="/images/svg/logo-small.svg" alt="Logo" />
   </div>
