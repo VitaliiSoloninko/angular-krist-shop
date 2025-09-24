@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { SearchInputComponent } from '../../../shared/ui/search-input/search-input.component';
 
 @Component({
@@ -9,8 +9,7 @@ import { SearchInputComponent } from '../../../shared/ui/search-input/search-inp
 })
 export class ProductSearchComponent {
   searchValue = '';
-
-  @Output() search = new EventEmitter<string>();
+  search = output<string>();
 
   onSearchChange(value: string) {
     this.searchValue = value;

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-search-input',
@@ -7,9 +7,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './search-input.component.scss',
 })
 export class SearchInputComponent {
-  @Input() placeholder: string = 'Search for products...';
-  @Input() value: string = '';
-  @Output() valueChange = new EventEmitter<string>();
+  placeholder = input<string>('Search...');
+  value = input<string>();
+  valueChange = output<string>();
 
   onInput(event: Event) {
     const input = event.target as HTMLInputElement;
