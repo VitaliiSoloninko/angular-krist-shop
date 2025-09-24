@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { PaginationComponent } from '../../../shared/ui/pagination/pagination.component';
 
 @Component({
@@ -8,10 +8,10 @@ import { PaginationComponent } from '../../../shared/ui/pagination/pagination.co
   styleUrl: './product-pagination.component.scss',
 })
 export class ProductPaginationComponent {
-  @Input() totalItems = 0;
-  @Input() pageSize = 10;
-  @Input() currentPage = 1;
-  @Output() pageChange = new EventEmitter<number>();
+  totalItems = input<number>(0);
+  pageSize = input<number>(10);
+  currentPage = input<number>(1);
+  pageChange = output<number>();
 
   onPageChange(page: number) {
     this.pageChange.emit(page);

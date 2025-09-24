@@ -1,7 +1,7 @@
 <app-pagination
-  [totalItems]="totalItems"
-  [pageSize]="pageSize"
-  [currentPage]="currentPage"
+  [totalItems]="totalItems()"
+  [pageSize]="pageSize()"
+  [currentPage]="currentPage()"
   (pageChange)="onPageChange($event)"
 >
 </app-pagination>

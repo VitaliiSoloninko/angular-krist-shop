@@ -1,10 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-} from '@angular/core';
+import { Component, input, OnChanges, output } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -13,16 +7,15 @@ import {
   styleUrl: './pagination.component.scss',
 })
 export class PaginationComponent implements OnChanges {
-  @Input() totalItems = 0;
-  @Input() pageSize = 10;
-  @Input() currentPage = 1;
-  @Output() pageChange = new EventEmitter<number>();
-
+  totalItems = input<number>(0);
+  pageSize = input<number>(10);
+  currentPage = input<number>(1);
+  pageChange = output<number>();
   totalPages = 1;
   pages: number[] = [];
 
   ngOnChanges() {
-    this.totalPages = Math.ceil(this.totalItems / this.pageSize) || 1;
+    this.totalPages = Math.ceil(this.totalItems() / this.pageSize()) || 1;
     this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
   }
 
