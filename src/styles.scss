@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Imperial+Script&family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-:root {
+body {
   --primary-color: #000000;
   --primary-color-hover: rgb(0, 0, 0, 0.8);
+  --secondary-color: #1976d2;
+  --secondary-color-light: rgba(25, 118, 210, 0.2);
+  --secondary-color-hover: #146ac0;
   --grey-light-color: rgb(0, 0, 0, 0.1);
   --grey-light-color-hover: rgb(0, 0, 0, 0.15);
+  // background: linear-gradient(135deg, #fcfbff 0%, #f8f6ff 25%, #f3f0ff 50%);
+  min-height: 100vh;
 }
 
 * {

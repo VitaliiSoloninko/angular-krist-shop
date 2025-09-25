@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { BurgerMenuComponent } from '../../../shared/ui/burger-menu/burger-menu.component';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, BurgerMenuComponent],
+  imports: [RouterLink, BurgerMenuComponent, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

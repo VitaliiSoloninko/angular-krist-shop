@@ -47,6 +47,24 @@
   margin-bottom: 8px;
   line-height: auto;
 }
+@media (max-width: 600px) {
+  .product-title {
+    font-size: 1.2rem;
+  }
+  .product-price {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .product-title {
+    font-size: 1.1rem;
+  }
+  .product-price {
+    font-size: 1rem;
+  }
+}
+
 .product-rating {
   display: flex;
   align-items: center;
