@@ -10,6 +10,7 @@ import { ProductPaginationComponent } from '../../features/product/product-pagin
 import { ProductSearchComponent } from '../../features/product/product-search/product-search.component';
 import { ProductSortComponent } from '../../features/product/product-sort/product-sort.component';
 import { ModalComponent } from '../../shared/ui/modal/modal.component';
+import { EmptyStateComponent } from '../../shared/ui/empty-state/empty-state.component';
 
 @Component({
   selector: 'app-products-catalog',
@@ -20,6 +21,7 @@ import { ModalComponent } from '../../shared/ui/modal/modal.component';
     ProductSortComponent,
     ProductSearchComponent,
     ModalComponent,
+    EmptyStateComponent,
   ],
   templateUrl: './products-catalog.component.html',
   styleUrl: './products-catalog.component.scss',

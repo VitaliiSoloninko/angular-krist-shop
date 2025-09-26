@@ -32,7 +32,11 @@
       </div>
       } @else {
       <div class="no-products-message">
-        No products found for the selected filters.
+        <app-empty-state
+          title="No products found"
+          subtitle="Try adjusting your search criteria or browse our categories"
+          icon="search-x"
+        ></app-empty-state>
       </div>
       }
     </main>

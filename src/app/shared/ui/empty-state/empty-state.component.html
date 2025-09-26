@@ -1,0 +1,27 @@
+<div class="empty-state">
+  <div class="empty-state-icon">
+    <img [src]="'/images/svg/empty-state/' + icon() + '.svg'" [alt]="title()" />
+  </div>
+
+  <div class="empty-state-content">
+    <h2 class="empty-state-title">{{ title() }}</h2>
+
+    @if (subtitle()) {
+    <p class="empty-state-subtitle">{{ subtitle() }}</p>
+    }
+  </div>
+
+  @if (showButton()) {
+  <div class="empty-state-action">
+    @if (buttonRoute()) {
+    <a class="empty-state-btn" [routerLink]="buttonRoute()">
+      {{ buttonText() }}
+    </a>
+    } @else {
+    <button class="empty-state-btn" (click)="onButtonClick()">
+      {{ buttonText() }}
+    </button>
+    }
+  </div>
+  }
+</div>

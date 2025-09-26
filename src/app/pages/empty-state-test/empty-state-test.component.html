@@ -1,0 +1,109 @@
+<div class="test-container">
+  <h1>Empty State Components Test</h1>
+
+  <div class="test-grid">
+    <!-- 1. No Search Results -->
+    <div class="test-card">
+      <h2>No Search Results</h2>
+      <app-empty-state
+        title="No products found"
+        subtitle="Try adjusting your search criteria or browse our categories"
+        icon="search-x"
+        [showButton]="true"
+        buttonText="Browse Categories"
+        buttonRoute="/catalog"
+      ></app-empty-state>
+    </div>
+
+    <!-- 2. 404 Page -->
+    <div class="test-card">
+      <h2>404 Error</h2>
+      <app-empty-state
+        title="Page Not Found"
+        subtitle="The page you're looking for doesn't exist"
+        icon="404-error"
+        [showButton]="true"
+        buttonText="Go Home"
+        buttonRoute="/"
+      ></app-empty-state>
+    </div>
+
+    <!-- 3. Empty Cart -->
+    <div class="test-card">
+      <h2>Empty Cart</h2>
+      <app-empty-state
+        title="Your cart is empty"
+        subtitle="Add some products to get started"
+        icon="cart-empty"
+        [showButton]="true"
+        buttonText="Start Shopping"
+        buttonRoute="/catalog"
+      ></app-empty-state>
+    </div>
+
+    <!-- 4. Connection Error -->
+    <div class="test-card">
+      <h2>Connection Error</h2>
+      <app-empty-state
+        title="Connection Error"
+        subtitle="Please check your internet connection"
+        icon="connection-error"
+        [showButton]="true"
+        buttonText="Try Again"
+        [buttonRoute]="null"
+        (buttonClick)="retryConnection()"
+      ></app-empty-state>
+    </div>
+
+    <!-- 5. No Filters Results -->
+    <div class="test-card">
+      <h2>No Filter Results</h2>
+      <app-empty-state
+        title="No matches found"
+        subtitle="No products match your current filters. Try removing some filters."
+        icon="filter-empty"
+        [showButton]="true"
+        buttonText="Clear Filters"
+        [buttonRoute]="null"
+        (buttonClick)="clearFilters()"
+      ></app-empty-state>
+    </div>
+
+    <!-- 6. Server Error -->
+    <div class="test-card">
+      <h2>Server Error</h2>
+      <app-empty-state
+        title="Something went wrong"
+        subtitle="We're experiencing some technical difficulties. Please try again later."
+        icon="server-error"
+        [showButton]="true"
+        buttonText="Refresh Page"
+        [buttonRoute]="null"
+        (buttonClick)="refreshPage()"
+      ></app-empty-state>
+    </div>
+
+    <!-- 7. No Favorites -->
+    <div class="test-card">
+      <h2>Empty Favorites</h2>
+      <app-empty-state
+        title="No favorites yet"
+        subtitle="Save products you love to find them easily later"
+        icon="heart-empty"
+        [showButton]="true"
+        buttonText="Explore Products"
+        buttonRoute="/catalog"
+      ></app-empty-state>
+    </div>
+
+    <!-- 8. No Button Version -->
+    <div class="test-card">
+      <h2>No Button</h2>
+      <app-empty-state
+        title="Loading complete"
+        subtitle="All data has been loaded successfully"
+        icon="success"
+      ></app-empty-state>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+.test-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+.test-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  // Уменьшим размер для тестов
+  app-empty-state {
+    .empty-state {
+      min-height: 280px;
+      padding: 30px 10px;
+    }
+
+    .empty-state-icon img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .empty-state-title {
+      font-size: 18px;
+    }
+
+    .empty-state-subtitle {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .test-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .test-card {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
