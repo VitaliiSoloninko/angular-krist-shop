@@ -13,7 +13,7 @@
         <div class="products-search">
           <app-product-search (search)="onSearch($event)"></app-product-search>
         </div>
-        <div class="products-filters-mobile">
+        <div class="products-filters-mobile" (click)="openFiltersModal()">
           <img src="/images/svg/filters-icon.svg" alt="Filters" />
         </div>
       </div>
@@ -46,3 +46,18 @@
     </div>
   </div>
 </div>
+
+<app-modal
+  [isOpen]="showFiltersModal"
+  type="confirm"
+  (close)="closeFiltersModal()"
+  (confirm)="applyFiltersFromModal()"
+  (cancel)="closeFiltersModal()"
+>
+  <app-product-filters
+    [filterGroups]="filterGroups"
+    [selectedFilters]="selectedFilters"
+    (filterSelected)="onFilterSelected($event)"
+    (reset)="resetFilters()"
+  ></app-product-filters>
+</app-modal>

@@ -9,6 +9,7 @@ import { ProductFiltersComponent } from '../../features/product/product-filters/
 import { ProductPaginationComponent } from '../../features/product/product-pagination/product-pagination.component';
 import { ProductSearchComponent } from '../../features/product/product-search/product-search.component';
 import { ProductSortComponent } from '../../features/product/product-sort/product-sort.component';
+import { ModalComponent } from '../../shared/ui/modal/modal.component';
 
 @Component({
   selector: 'app-products-catalog',
@@ -18,6 +19,7 @@ import { ProductSortComponent } from '../../features/product/product-sort/produc
     ProductPaginationComponent,
     ProductSortComponent,
     ProductSearchComponent,
+    ModalComponent,
   ],
   templateUrl: './products-catalog.component.html',
   styleUrl: './products-catalog.component.scss',
@@ -36,6 +38,21 @@ export class ProductsCatalogComponent {
     this.selectedFilters = {};
     this.applyFilters();
     this.currentPage = 1;
+  }
+
+  // -------------------- FILTERS MODAL --------------------
+  showFiltersModal = false;
+
+  openFiltersModal() {
+    this.showFiltersModal = true;
+  }
+
+  closeFiltersModal() {
+    this.showFiltersModal = false;
+  }
+
+  applyFiltersFromModal() {
+    this.showFiltersModal = false;
   }
 
   // -------------------- SEARCH --------------------
