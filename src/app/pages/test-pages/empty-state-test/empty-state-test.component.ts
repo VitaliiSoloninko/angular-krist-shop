@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmptyStateComponent } from '../../shared/ui/empty-state/empty-state.component';
+import { EmptyStateComponent } from '../../../shared/ui/empty-state/empty-state.component';
 
 @Component({
   selector: 'app-empty-state-test',
