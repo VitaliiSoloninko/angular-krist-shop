@@ -1,0 +1,78 @@
+<div class="auth-form-container">
+  <h1>{{ title() }}</h1>
+  <p>{{ subtitle() }}</p>
+  
+  <!-- Login Form -->
+  <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email" class="form-label">Email Address</label>
+      <input
+        id="email"
+        type="email"
+        class="form-input"
+        placeholder="Enter your email"
+        formControlName="email"
+        [class.error]="isFieldInvalid('email')"
+      />
+      <div class="error-message" *ngIf="isFieldInvalid('email')">
+        <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</span>
+        <span *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email</span>
+      </div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="form-group">
+      <label for="password" class="form-label">Password</label>
+      <div class="password-container">
+        <input
+          id="password"
+          [type]="showPassword ? 'text' : 'password'"
+          class="form-input"
+          placeholder="Enter your password"
+          formControlName="password"
+          [class.error]="isFieldInvalid('password')"
+        />
+        <button
+          type="button"
+          class="password-toggle"
+          (click)="togglePassword()"
+          tabindex="-1"
+        >
+          {{ showPassword ? '👁️' : '👁️‍🗨️' }}
+        </button>
+      </div>
+      <div class="error-message" *ngIf="isFieldInvalid('password')">
+        <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</span>
+        <span *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</span>
+      </div>
+    </div>
+
+    <!-- Remember Me & Forgot Password -->
+    <div class="form-options" *ngIf="showRememberMe() || showForgotPassword()">
+      <label class="checkbox-container" *ngIf="showRememberMe()">
+        <input type="checkbox" formControlName="rememberMe" />
+        <span class="checkmark"></span>
+        Remember Me
+      </label>
+      <a 
+        href="#" 
+        class="forgot-link" 
+        *ngIf="showForgotPassword()"
+        (click)="onForgotPasswordClick(); $event.preventDefault()"
+      >
+        Forgot Password?
+      </a>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="auth-button"
+      [disabled]="loginForm.invalid || isLoading()"
+    >
+      <span *ngIf="!isLoading()">{{ submitButtonText() }}</span>
+      <span *ngIf="isLoading()">Signing in...</span>
+    </button>
+  </form>
+</div>
