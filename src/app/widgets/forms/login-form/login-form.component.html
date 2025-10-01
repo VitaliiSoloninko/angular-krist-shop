@@ -1,0 +1,31 @@
+<form class="form-login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h1>Hallo 👋</h1>
+  <p>Please login here</p>
+  <div class="control">
+    <label for="email">E-Mail</label>
+    <app-text-input
+      [control]="fc.email"
+      [showErrorsWhen]="isSubmitted"
+      type="email"
+      label="Email"
+    />
+  </div>
+
+  <div class="control">
+    <label for="password">Passwort</label>
+    <app-text-input
+      [control]="fc.password"
+      [showErrorsWhen]="isSubmitted"
+      type="password"
+      label="Password"
+    />
+  </div>
+
+  <div class="password">
+    <a routerLink="/forgot-password" class="registration"
+      >Passwort vergessen?</a
+    >
+  </div>
+
+  <button class="btn login">Login</button>
+</form>

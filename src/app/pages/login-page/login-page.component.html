@@ -6,13 +6,6 @@
   </div>
 
   <div class="login-right">
-    <app-auth-form
-      title="Welcome 👋"
-      subtitle="Please sign in to your account"
-      submitButtonText="Login"
-      [isLoading]="isLoading"
-      (formSubmit)="onLogin($event)"
-      (forgotPasswordClick)="onForgotPassword()"
-    ></app-auth-form>
+    <app-login-form />
   </div>
 </div>

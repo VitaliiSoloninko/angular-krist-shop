@@ -17,7 +17,6 @@
   position: relative;
   overflow: hidden;
   height: 100vh;
-
   @media (max-width: 768px) {
     display: none;
   }
@@ -52,37 +51,7 @@
     padding: 1.5rem;
     height: 100vh;
   }
-}
-
-.login-form-container {
-  width: 100%;
-  max-width: 400px;
-
-  h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    color: #666666;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-  }
-}
-
-// Responsive
-@media (max-width: 480px) {
-  .login-right {
+  @media (max-width: 480px) {
     padding: 1rem;
-  }
-
-  .login-form-container {
-    max-width: none;
-
-    h1 {
-      font-size: 1.75rem;
-    }
   }
 }
