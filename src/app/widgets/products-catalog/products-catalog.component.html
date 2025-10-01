@@ -26,7 +26,10 @@
     </div>
     <main>
       @if(filteredProducts.length > 0){
-      <app-product-list [products]="pagedProducts"></app-product-list>
+      <app-product-list
+        [products]="pagedProducts"
+        (productClick)="navigateToProduct($event)"
+      ></app-product-list>
       <div class="products-count">
         Total products: {{ filteredProducts.length }}
       </div>

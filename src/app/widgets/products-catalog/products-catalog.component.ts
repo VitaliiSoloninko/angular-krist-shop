@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { debounceTime, Subject, Subscription } from 'rxjs';
 import { BRANDS } from '../../data/brands.data';
 import { FILTER_GROUPS } from '../../data/filter-groups.data';
 import { PRODUCTS_DATA } from '../../data/products.data';
 import { TYPES } from '../../data/types.data';
+import { Product } from '../../entities/product/model/product';
 import { ProductListComponent } from '../../entities/product/ui/product-list/product-list.component';
 import { ProductFiltersComponent } from '../../features/product/product-filters/product-filters.component';
 import { ProductPaginationComponent } from '../../features/product/product-pagination/product-pagination.component';
 import { ProductSearchComponent } from '../../features/product/product-search/product-search.component';
 import { ProductSortComponent } from '../../features/product/product-sort/product-sort.component';
-import { ModalComponent } from '../../shared/ui/modal/modal.component';
 import { EmptyStateComponent } from '../../shared/ui/empty-state/empty-state.component';
+import { ModalComponent } from '../../shared/ui/modal/modal.component';
 
 @Component({
   selector: 'app-products-catalog',
@@ -27,6 +29,10 @@ import { EmptyStateComponent } from '../../shared/ui/empty-state/empty-state.com
   styleUrl: './products-catalog.component.scss',
 })
 export class ProductsCatalogComponent {
+  constructor(private router: Router) {}
+  navigateToProduct(product: Product) {
+    this.router.navigate(['/product', product.id]);
+  }
   // -------------------- FILTERS --------------------
   filterGroups = FILTER_GROUPS;
   selectedFilters: { [key: string]: string } = {};

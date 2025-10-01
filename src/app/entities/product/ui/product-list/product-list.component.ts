@@ -11,4 +11,8 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 export class ProductListComponent {
   products = input<Product[]>([]);
   @Output() productClick = new EventEmitter<Product>();
+
+  onProductClick(product: Product) {
+    this.productClick.emit(product);
+  }
 }
