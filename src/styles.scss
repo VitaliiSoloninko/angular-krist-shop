@@ -10,6 +10,8 @@ body {
   --secondary-color-hover: #146ac0;
   --grey-light-color: rgb(0, 0, 0, 0.1);
   --grey-light-color-hover: rgb(0, 0, 0, 0.15);
+  --grey-color: #f0f0f0;
+  --grey-dark-color: rgb(0, 0, 0, 0.6);
   --red-color: #f56565;
   --red-hover-color: #ef4b4b;
   --orange-color: #f29401;
@@ -17,7 +19,6 @@ body {
   --yellow-color: #f3c501;
   --purple-color: rgba(138, 43, 226, 0.4);
   --white-color: #ffffff;
-  // background: linear-gradient(135deg, #fcfbff 0%, #f8f6ff 25%, #f3f0ff 50%);
   min-height: 100vh;
 }
 
@@ -34,6 +35,10 @@ body {
 
 .mb-16 {
   margin-bottom: 16px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
 }
 
 .btn {

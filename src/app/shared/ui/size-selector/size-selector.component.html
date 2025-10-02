@@ -1,0 +1,13 @@
+<div class="size-section">
+  <h3>Choose Size</h3>
+  <div class="size-options">
+    @for (size of sizes(); track size) {
+    <button
+      [class]="'size-btn ' + (selectedSize() === size ? 'active' : '')"
+      (click)="onSizeSelect(size)"
+    >
+      {{ size }}
+    </button>
+    }
+  </div>
+</div>

@@ -34,18 +34,12 @@
         soft and breathable fabric, it offers superior comfort and style.
       </p>
 
-      <!-- Size Selection -->
-      <div class="size-section">
-        <h3>Choose Size</h3>
-        <div class="size-options">
-          <button
-            *ngFor="let size of sizes"
-            [class]="'size-btn ' + (selectedSize === size ? 'active' : '')"
-            (click)="selectSize(size)"
-          >
-            {{ size }}
-          </button>
-        </div>
+      <div class="mb-24">
+        <app-size-selector
+          [sizes]="sizes"
+          [selectedSize]="selectedSize"
+          (sizeSelected)="onSizeSelected($event)"
+        ></app-size-selector>
       </div>
 
       <!-- Quantity and Add to Cart -->

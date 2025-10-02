@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PRODUCTS_DATA } from '../../../data/products.data';
 import { Product } from '../../../entities/product/model/product';
+import { SizeSelectorComponent } from '../../../shared/ui/size-selector/size-selector.component';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [CommonModule],
+  imports: [CommonModule, SizeSelectorComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })
@@ -43,7 +44,7 @@ export class ProductDetailComponent implements OnInit {
     );
   }
 
-  selectSize(size: string) {
+  onSizeSelected(size: string) {
     this.selectedSize = size;
   }
 
