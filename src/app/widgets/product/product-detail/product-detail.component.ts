@@ -4,10 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { PRODUCTS_DATA } from '../../../data/products.data';
 import { Product } from '../../../entities/product/model/product';
 import { SizeSelectorComponent } from '../../../shared/ui/size-selector/size-selector.component';
+import { QuantityControlComponent } from '../../../shared/ui/quantity-control/quantity-control.component';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [CommonModule, SizeSelectorComponent],
+  imports: [CommonModule, SizeSelectorComponent, QuantityControlComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })
@@ -48,15 +49,10 @@ export class ProductDetailComponent implements OnInit {
     this.selectedSize = size;
   }
 
-  increaseQuantity() {
-    this.quantity++;
+  onQuantityChange(newQuantity: number) {
+    this.quantity = newQuantity;
   }
 
-  decreaseQuantity() {
-    if (this.quantity > 1) {
-      this.quantity--;
-    }
-  }
   addToCart() {
     console.log('Added to cart:', {
       product: this.product,

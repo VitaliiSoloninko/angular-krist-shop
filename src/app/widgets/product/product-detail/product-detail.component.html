@@ -44,11 +44,13 @@
 
       <!-- Quantity and Add to Cart -->
       <div class="cart-section">
-        <div class="quantity-controls">
-          <button class="qty-btn" (click)="decreaseQuantity()">-</button>
-          <span class="quantity">{{ quantity }}</span>
-          <button class="qty-btn" (click)="increaseQuantity()">+</button>
-        </div>
+        <app-quantity-control
+          [quantity]="quantity"
+          [minQuantity]="1"
+          [maxQuantity]="100"
+          (quantityChange)="onQuantityChange($event)"
+        ></app-quantity-control>
+
         <button class="add-to-cart-btn" (click)="addToCart()">
           Add to Cart
         </button>

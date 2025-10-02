@@ -104,47 +104,14 @@
     gap: 1rem;
     align-items: center;
 
-    .quantity-controls {
-      display: flex;
-      align-items: center;
-      border: 1px solid #ddd;
-      border-radius: 25px;
-      padding: 0.5rem;
-      background: #f9f9f9;
-
-      .qty-btn {
-        background: none;
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background: #e0e0e0;
-        }
-      }
-
-      .quantity {
-        padding: 0 1rem;
-        font-weight: 500;
-        min-width: 30px;
-        text-align: center;
-      }
-    }
-
     .add-to-cart-btn {
       flex: 1;
       background: #000;
       color: white;
       border: none;
-      padding: 1rem 2rem;
-      border-radius: 25px;
+      height: 52px;
+      padding: 0.5rem 2rem;
+      border-radius: 62px;
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s ease;

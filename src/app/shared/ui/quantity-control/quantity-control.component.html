@@ -1,0 +1,17 @@
+<div class="quantity-controls">
+  <button
+    class="qty-btn"
+    (click)="decrease()"
+    [disabled]="quantity() <= minQuantity()"
+  >
+    <img src="/images/svg/minus.svg" alt="-" />
+  </button>
+  <span class="quantity">{{ quantity() }}</span>
+  <button
+    class="qty-btn"
+    (click)="increase()"
+    [disabled]="quantity() >= maxQuantity()"
+  >
+    <img src="/images/svg/plus.svg" alt="+" />
+  </button>
+</div>
