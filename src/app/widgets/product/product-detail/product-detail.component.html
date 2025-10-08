@@ -1,7 +1,8 @@
 <div class="product-detail-container">
   <div class="product-layout">
     <!-- Product Image -->
-    <div class="product-image-section">
+
+    <div class="product-image">
       <img [src]="product?.img" alt="{{ product?.name }}" />
     </div>
 
@@ -34,13 +35,15 @@
         soft and breathable fabric, it offers superior comfort and style.
       </p>
 
-      <div class="mb-24">
-        <app-size-selector
-          [sizes]="sizes"
-          [selectedSize]="selectedSize"
-          (sizeSelected)="onSizeSelected($event)"
-        ></app-size-selector>
-      </div>
+      <app-gray-line></app-gray-line>
+
+      <app-size-selector
+        [sizes]="sizes"
+        [selectedSize]="selectedSize"
+        (sizeSelected)="onSizeSelected($event)"
+      ></app-size-selector>
+
+      <app-gray-line></app-gray-line>
 
       <!-- Quantity and Add to Cart -->
       <div class="cart-section">

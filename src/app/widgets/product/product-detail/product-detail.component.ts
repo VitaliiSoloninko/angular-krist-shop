@@ -5,10 +5,16 @@ import { PRODUCTS_DATA } from '../../../data/products.data';
 import { Product } from '../../../entities/product/model/product';
 import { SizeSelectorComponent } from '../../../shared/ui/size-selector/size-selector.component';
 import { QuantityControlComponent } from '../../../shared/ui/quantity-control/quantity-control.component';
+import { GrayLineComponent } from '../../../shared/ui/gray-line/gray-line.component';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [CommonModule, SizeSelectorComponent, QuantityControlComponent],
+  imports: [
+    CommonModule,
+    SizeSelectorComponent,
+    QuantityControlComponent,
+    GrayLineComponent,
+  ],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })
