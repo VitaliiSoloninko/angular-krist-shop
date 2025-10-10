@@ -8,6 +8,25 @@
   padding: 0.5rem;
   background: var(--grey-color);
 
+  &.small {
+    width: 126px;
+    height: 40px;
+    border-radius: 62px;
+    padding: 0.4rem;
+
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
+    }
+
+    .quantity {
+      width: 36px;
+      font-size: 0.9rem;
+      padding: 0 0.5rem;
+    }
+  }
+
   .qty-btn {
     background: none;
     border: none;

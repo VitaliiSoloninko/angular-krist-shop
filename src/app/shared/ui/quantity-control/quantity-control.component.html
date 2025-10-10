@@ -1,4 +1,4 @@
-<div class="quantity-controls">
+<div class="quantity-controls" [class.small]="size() === 'small'">
   <button
     class="qty-btn"
     (click)="decrease()"

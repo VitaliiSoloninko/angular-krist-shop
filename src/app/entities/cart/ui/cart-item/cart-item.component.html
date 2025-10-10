@@ -1,0 +1,32 @@
+<div class="cart-item">
+  <div class="item-image">
+    <img src="/images/products/1.jpg" alt="Gradient Graphic T-shirt" />
+  </div>
+
+  <div class="item-content">
+    <div class="item-top">
+      <div class="item-top-left">
+        <h3 class="item-name">Gradient Graphic T-shirt</h3>
+        <p class="item-size">Size: <span>Large</span></p>
+        <p class="item-color">Color: <span>White</span></p>
+      </div>
+      <div class="item-top-right">
+        <button class="delete-btn">
+          <img src="/images/svg/trash.svg" alt="Delete" />
+        </button>
+      </div>
+    </div>
+    <div class="item-bottom">
+      <div class="item-price">$145</div>
+      <div class="quantity">
+        <app-quantity-control
+          [quantity]="quantity"
+          [minQuantity]="1"
+          [maxQuantity]="100"
+          size="small"
+          (quantityChange)="onQuantityChange($event)"
+        ></app-quantity-control>
+      </div>
+    </div>
+  </div>
+</div>

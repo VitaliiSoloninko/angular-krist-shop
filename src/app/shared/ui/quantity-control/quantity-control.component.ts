@@ -10,6 +10,8 @@ export class QuantityControlComponent {
   quantity = input<number>(1);
   minQuantity = input<number>(1);
   maxQuantity = input<number>(99);
+  size = input<'normal' | 'small'>('normal');
+
   quantityChange = output<number>();
 
   increase() {
