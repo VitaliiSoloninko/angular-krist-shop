@@ -1,0 +1,39 @@
+<div class="order-summary">
+  <h2>Order Summary</h2>
+
+  @if (cartSummary()) {
+  <div class="summary-details">
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <span class="amount">${{ cartSummary()!.subtotal }}</span>
+    </div>
+
+    @if (cartSummary()!.discount > 0) {
+    <div class="summary-row discount">
+      <span
+        >Discount @if (cartSummary()!.discountPercentage) {(-{{
+          cartSummary()!.discountPercentage
+        }}%)}</span
+      >
+      <span class="amount discount-amount"
+        >-${{ cartSummary()!.discount }}</span
+      >
+    </div>
+    }
+
+    <div class="summary-row">
+      <span>Delivery Fee</span>
+      <span class="amount">${{ cartSummary()!.deliveryFee }}</span>
+    </div>
+  </div>
+
+  <app-gray-line />
+
+  <div class="summary-row total">
+    <span>Total</span>
+    <span class="amount total-amount">${{ cartSummary()!.total }}</span>
+  </div>
+  }
+
+  <button class="checkout-btn" (click)="onCheckout()">Go to Checkout →</button>
+</div>

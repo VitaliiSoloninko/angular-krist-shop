@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
-import { CartItem } from '../../entities/cart/model/cart-item';
+import { Component, computed, signal } from '@angular/core';
+import { CartItem, CartSummary } from '../../entities/cart/model/cart-item';
 import { CartItemComponent } from '../../entities/cart/ui/cart-item/cart-item.component';
-import { CartListComponent } from '../../entities/cart/ui/cart-list/cart-list.component';
+import { GrayLineComponent } from '../../shared/ui/gray-line/gray-line.component';
+import { OrderSummaryComponent } from '../../widgets/cart/order-summary/order-summary.component';
 
 @Component({
   selector: 'app-cart-page',
-  imports: [CartItemComponent, CartListComponent],
+  imports: [OrderSummaryComponent, CartItemComponent, GrayLineComponent],
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.scss',
 })
 export class CartPageComponent {
-  cartItems: CartItem[] = [
+  cartItems = signal<CartItem[]>([
     {
       id: '1',
       product: {
@@ -67,5 +68,43 @@ export class CartPageComponent {
       maxQuantity: 8,
       addedAt: new Date('2024-01-17T09:15:00'),
     },
-  ];
+  ]);
+
+  cartSummary = computed(() => {
+    const items = this.cartItems();
+    const subtotal = items.reduce(
+      (sum, item) => sum + item.product.price * item.quantity,
+      0
+    );
+    const deliveryFee = 15;
+    const discount = 0; // No promo code applied
+    const total = subtotal - discount + deliveryFee;
+
+    return {
+      subtotal,
+      discount,
+      discountPercentage: 0,
+      deliveryFee,
+      total,
+    } as CartSummary;
+  });
+
+  onQuantityChange(event: { id: string; quantity: number }): void {
+    this.cartItems.update((items) =>
+      items.map((item) =>
+        item.id === event.id ? { ...item, quantity: event.quantity } : item
+      )
+    );
+  }
+
+  onRemoveItem(itemId: string): void {
+    this.cartItems.update((items) =>
+      items.filter((item) => item.id !== itemId)
+    );
+  }
+
+  onCheckout(): void {
+    console.log('Proceeding to checkout with total:', this.cartSummary().total);
+    console.log('Cart items:', this.cartItems());
+  }
 }

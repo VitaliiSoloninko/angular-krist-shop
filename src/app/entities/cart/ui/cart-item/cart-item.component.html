@@ -1,32 +1,35 @@
+@if (cartItem(); as item) {
 <div class="cart-item">
   <div class="item-image">
-    <img [src]="cartItem()?.product?.img" alt="Image" />
+    <img [src]="item.product.img" alt="Image" />
   </div>
 
   <div class="item-content">
     <div class="item-top">
       <div class="item-top-left">
-        <h3 class="item-name">{{ cartItem()?.product?.name }}</h3>
+        <h3 class="item-name">{{ item.product.name }}</h3>
         <p class="item-size">
-          Size: <span>{{ cartItem()?.selectedSize }}</span>
+          Size: <span>{{ item.selectedSize }}</span>
         </p>
+        @if (item.selectedColor) {
         <p class="item-color">
-          Color: <span>{{ cartItem()?.selectedColor }}</span>
+          Color: <span>{{ item.selectedColor }}</span>
         </p>
+        }
       </div>
       <div class="item-top-right">
-        <button class="delete-btn">
+        <button class="delete-btn" (click)="onRemoveItem()">
           <img src="/images/svg/trash.svg" alt="Delete" />
         </button>
       </div>
     </div>
     <div class="item-bottom">
-      <div class="item-price">{{ cartItem()?.product?.price | currency }}</div>
+      <div class="item-price">{{ item.product.price | currency }}</div>
       <div class="quantity">
         <app-quantity-control
-          [quantity]="quantity"
+          [quantity]="quantity()"
           [minQuantity]="1"
-          [maxQuantity]="100"
+          [maxQuantity]="item.maxQuantity || 100"
           size="small"
           (quantityChange)="onQuantityChange($event)"
         ></app-quantity-control>
@@ -34,3 +37,4 @@
     </div>
   </div>
 </div>
+}

@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
 import { QuantityControlComponent } from '../../../../shared/ui/quantity-control/quantity-control.component';
 import { CartItem } from '../../model/cart-item';
 
@@ -11,9 +11,25 @@ import { CartItem } from '../../model/cart-item';
 })
 export class CartItemComponent {
   cartItem = input<CartItem>();
-  quantity = 1;
+  quantityChanged = output<{ id: string; quantity: number }>();
+  itemRemoved = output<string>();
 
-  onQuantityChange(newQuantity: number) {
-    this.quantity = newQuantity;
+  quantity = computed(() => this.cartItem()?.quantity || 1);
+
+  onQuantityChange(newQuantity: number): void {
+    const item = this.cartItem();
+    if (item) {
+      this.quantityChanged.emit({
+        id: item.id,
+        quantity: newQuantity,
+      });
+    }
+  }
+
+  onRemoveItem(): void {
+    const item = this.cartItem();
+    if (item) {
+      this.itemRemoved.emit(item.id);
+    }
   }
 }
