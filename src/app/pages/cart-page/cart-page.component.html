@@ -1,15 +1,11 @@
 <div class="cart-container">
   <div class="cart-layout">
     <!-- Cart Items Section -->
+
     <div class="cart-items-section">
       <h1 class="cart-title">YOUR CART</h1>
-
-      <app-cart-item></app-cart-item>
-      <app-cart-item></app-cart-item>
-      <app-cart-item></app-cart-item>
+      <app-cart-list [cartItems]="cartItems"></app-cart-list>
     </div>
-
-    <!-- Order Summary Section -->
     <div class="order-summary-section">
       <div class="order-summary">
         <h2>Order Summary</h2>

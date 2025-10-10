@@ -1,14 +1,18 @@
 <div class="cart-item">
   <div class="item-image">
-    <img src="/images/products/1.jpg" alt="Gradient Graphic T-shirt" />
+    <img [src]="cartItem()?.product?.img" alt="Image" />
   </div>
 
   <div class="item-content">
     <div class="item-top">
       <div class="item-top-left">
-        <h3 class="item-name">Gradient Graphic T-shirt</h3>
-        <p class="item-size">Size: <span>Large</span></p>
-        <p class="item-color">Color: <span>White</span></p>
+        <h3 class="item-name">{{ cartItem()?.product?.name }}</h3>
+        <p class="item-size">
+          Size: <span>{{ cartItem()?.selectedSize }}</span>
+        </p>
+        <p class="item-color">
+          Color: <span>{{ cartItem()?.selectedColor }}</span>
+        </p>
       </div>
       <div class="item-top-right">
         <button class="delete-btn">
@@ -17,7 +21,7 @@
       </div>
     </div>
     <div class="item-bottom">
-      <div class="item-price">$145</div>
+      <div class="item-price">{{ cartItem()?.product?.price | currency }}</div>
       <div class="quantity">
         <app-quantity-control
           [quantity]="quantity"

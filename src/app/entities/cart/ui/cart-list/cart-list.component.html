@@ -1,0 +1,5 @@
+@for (item of cartItems(); track $index) {
+<app-cart-item [cartItem]="item" />
+@if ($index < cartItems().length - 1) {
+<app-gray-line></app-gray-line>
+} }

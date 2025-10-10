@@ -1,4 +1,4 @@
-import { Component, EventEmitter, input, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Product } from '../../model/product';
 import { ProductCardComponent } from '../product-card/product-card.component';
 
@@ -10,7 +10,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 })
 export class ProductListComponent {
   products = input<Product[]>([]);
-  @Output() productClick = new EventEmitter<Product>();
+  productClick = output<Product>();
 
   onProductClick(product: Product) {
     this.productClick.emit(product);
