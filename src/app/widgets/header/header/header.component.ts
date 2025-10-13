@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CartService } from '../../../entities/cart/api/cart.service';
 import { BurgerMenuComponent } from '../../../shared/ui/burger-menu/burger-menu.component';
 
 @Component({
@@ -10,6 +11,11 @@ import { BurgerMenuComponent } from '../../../shared/ui/burger-menu/burger-menu.
 })
 export class HeaderComponent {
   isMobileMenuOpen = false;
+  private cartService = inject(CartService);
+
+  get cartItemsCount() {
+    return this.cartService.itemsCount();
+  }
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;

@@ -6,7 +6,6 @@ import { Cart, CartItem, CartSummary } from '../model/cart-item';
   providedIn: 'root',
 })
 export class CartService {
-  // Signal for cart items
   private cartItems = signal<CartItem[]>([]);
 
   // Computed signal for cart summary
