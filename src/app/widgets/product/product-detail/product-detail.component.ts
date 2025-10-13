@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PRODUCTS_DATA } from '../../../data/products.data';
+import { CartService } from '../../../entities/cart/api/cart.service';
 import { Product } from '../../../entities/product/model/product';
-import { SizeSelectorComponent } from '../../../shared/ui/size-selector/size-selector.component';
-import { QuantityControlComponent } from '../../../shared/ui/quantity-control/quantity-control.component';
 import { GrayLineComponent } from '../../../shared/ui/gray-line/gray-line.component';
+import { QuantityControlComponent } from '../../../shared/ui/quantity-control/quantity-control.component';
+import { SizeSelectorComponent } from '../../../shared/ui/size-selector/size-selector.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -25,7 +26,8 @@ export class ProductDetailComponent implements OnInit {
   selectedSize = 'Large';
   quantity = 1;
 
-  constructor(private route: ActivatedRoute) {}
+  route = inject(ActivatedRoute);
+  cartService = inject(CartService);
 
   ngOnInit() {
     const productId = this.route.snapshot.paramMap.get('id');
@@ -34,7 +36,7 @@ export class ProductDetailComponent implements OnInit {
         PRODUCTS_DATA.rows.find((p) => p.id.toString() === productId) || null;
     }
   }
-  // ДОБАВИТЬ геттеры для цен
+
   get currentPrice() {
     return this.product?.price || 0;
   }
@@ -60,6 +62,13 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart() {
+    if (!this.product || !this.selectedSize || this.quantity <= 0) {
+      alert('Please select size and quantity');
+      return;
+    }
+
+    this.cartService.addToCart(this.product, this.selectedSize, this.quantity);
+
     console.log('Added to cart:', {
       product: this.product,
       size: this.selectedSize,
