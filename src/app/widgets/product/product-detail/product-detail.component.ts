@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PRODUCTS_DATA } from '../../../data/products.data';
 import { CartService } from '../../../entities/cart/api/cart.service';
 import { Product } from '../../../entities/product/model/product';
@@ -8,6 +8,7 @@ import { GrayLineComponent } from '../../../shared/ui/gray-line/gray-line.compon
 import { ModalComponent } from '../../../shared/ui/modal/modal.component';
 import { QuantityControlComponent } from '../../../shared/ui/quantity-control/quantity-control.component';
 import { SizeSelectorComponent } from '../../../shared/ui/size-selector/size-selector.component';
+import { CartToastComponent } from '../../../entities/cart/ui/cart-toast/cart-toast.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,6 +18,7 @@ import { SizeSelectorComponent } from '../../../shared/ui/size-selector/size-sel
     QuantityControlComponent,
     GrayLineComponent,
     ModalComponent,
+    CartToastComponent,
   ],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
@@ -28,11 +30,12 @@ export class ProductDetailComponent implements OnInit {
   selectedSize = 'Large';
   quantity = 1;
 
-  isModalOpen = false;
-  private modalTimeout: any;
+  isToastOpen = false;
+  private toastTimeout: any;
 
   route = inject(ActivatedRoute);
   cartService = inject(CartService);
+  router = inject(Router);
 
   ngOnInit() {
     const productId = this.route.snapshot.paramMap.get('id');
@@ -73,9 +76,9 @@ export class ProductDetailComponent implements OnInit {
     }
     this.cartService.addToCart(this.product, this.selectedSize, this.quantity);
 
-    this.isModalOpen = true;
-    clearTimeout(this.modalTimeout);
-    this.modalTimeout = setTimeout(() => this.onModalClose(), 2000);
+    this.isToastOpen = true;
+    clearTimeout(this.toastTimeout);
+    this.toastTimeout = setTimeout(() => this.onToastClose(), 2000);
 
     console.log('Added to cart:', {
       product: this.product,
@@ -85,8 +88,13 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  onModalClose() {
-    this.isModalOpen = false;
-    clearTimeout(this.modalTimeout);
+  onToastClose() {
+    this.isToastOpen = false;
+    clearTimeout(this.toastTimeout);
+  }
+
+  goToCart() {
+    this.onToastClose();
+    this.router.navigate(['/cart']);
   }
 }

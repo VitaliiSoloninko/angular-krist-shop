@@ -61,14 +61,9 @@
   </div>
 </div>
 
-<app-modal
-  [isOpen]="isModalOpen"
-  [title]="'Add to cart'"
-  [type]="'alert'"
-  (close)="onModalClose()"
+<app-cart-toast
+  [isOpen]="isToastOpen"
+  (close)="onToastClose()"
+  (checkout)="goToCart()"
 >
-  <div class="success-content">
-    <img src="/images/svg/empty-state/success.svg" alt="Success" />
-  </div>
-  <p>Product successfully added to cart.</p>
-</app-modal>
+</app-cart-toast>
