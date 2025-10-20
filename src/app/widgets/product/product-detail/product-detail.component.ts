@@ -5,6 +5,7 @@ import { PRODUCTS_DATA } from '../../../data/products.data';
 import { CartService } from '../../../entities/cart/api/cart.service';
 import { Product } from '../../../entities/product/model/product';
 import { GrayLineComponent } from '../../../shared/ui/gray-line/gray-line.component';
+import { ModalComponent } from '../../../shared/ui/modal/modal.component';
 import { QuantityControlComponent } from '../../../shared/ui/quantity-control/quantity-control.component';
 import { SizeSelectorComponent } from '../../../shared/ui/size-selector/size-selector.component';
 
@@ -15,6 +16,7 @@ import { SizeSelectorComponent } from '../../../shared/ui/size-selector/size-sel
     SizeSelectorComponent,
     QuantityControlComponent,
     GrayLineComponent,
+    ModalComponent,
   ],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
@@ -25,6 +27,9 @@ export class ProductDetailComponent implements OnInit {
   sizes = ['Small', 'Medium', 'Large', 'X-Large'];
   selectedSize = 'Large';
   quantity = 1;
+
+  isModalOpen = false;
+  private modalTimeout: any;
 
   route = inject(ActivatedRoute);
   cartService = inject(CartService);
@@ -66,8 +71,11 @@ export class ProductDetailComponent implements OnInit {
       alert('Please select size and quantity');
       return;
     }
-
     this.cartService.addToCart(this.product, this.selectedSize, this.quantity);
+
+    this.isModalOpen = true;
+    clearTimeout(this.modalTimeout);
+    this.modalTimeout = setTimeout(() => this.onModalClose(), 2000);
 
     console.log('Added to cart:', {
       product: this.product,
@@ -75,5 +83,10 @@ export class ProductDetailComponent implements OnInit {
       quantity: this.quantity,
       price: this.currentPrice,
     });
+  }
+
+  onModalClose() {
+    this.isModalOpen = false;
+    clearTimeout(this.modalTimeout);
   }
 }

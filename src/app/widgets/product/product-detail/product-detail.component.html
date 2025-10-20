@@ -60,3 +60,15 @@
     </div>
   </div>
 </div>
+
+<app-modal
+  [isOpen]="isModalOpen"
+  [title]="'Add to cart'"
+  [type]="'alert'"
+  (close)="onModalClose()"
+>
+  <div class="success-content">
+    <img src="/images/svg/empty-state/success.svg" alt="Success" />
+  </div>
+  <p>Product successfully added to cart.</p>
+</app-modal>
