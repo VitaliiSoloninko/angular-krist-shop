@@ -3,10 +3,16 @@ import { CartService } from '../../entities/cart/api/cart.service';
 import { CartItemComponent } from '../../entities/cart/ui/cart-item/cart-item.component';
 import { GrayLineComponent } from '../../shared/ui/gray-line/gray-line.component';
 import { OrderSummaryComponent } from '../../widgets/cart/order-summary/order-summary.component';
+import { EmptyStateComponent } from '../../shared/ui/empty-state/empty-state.component';
 
 @Component({
   selector: 'app-cart-page',
-  imports: [OrderSummaryComponent, CartItemComponent, GrayLineComponent],
+  imports: [
+    OrderSummaryComponent,
+    CartItemComponent,
+    GrayLineComponent,
+    EmptyStateComponent,
+  ],
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.scss',
 })

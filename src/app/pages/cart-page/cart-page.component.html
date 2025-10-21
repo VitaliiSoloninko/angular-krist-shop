@@ -1,4 +1,14 @@
 <div class="cart-container">
+  @if (cartItems.length === 0) {
+  <app-empty-state
+    title="Your cart is empty"
+    subtitle="Add some products to get started"
+    icon="cart-empty"
+    [showButton]="true"
+    buttonText="Start Shopping"
+    buttonRoute="/catalog"
+  ></app-empty-state>
+  } @if (cartItems.length > 0) {
   <h1 class="cart-title">YOUR CART</h1>
   <div class="cart-layout">
     <div class="cart-items">
@@ -19,4 +29,5 @@
       ></app-order-summary>
     </div>
   </div>
+  }
 </div>
