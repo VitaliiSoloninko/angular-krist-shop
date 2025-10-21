@@ -14,6 +14,13 @@ export class CartItemComponent {
   quantityChanged = output<{ id: string; quantity: number }>();
   itemRemoved = output<string>();
 
+  quantitySize: 'medium' | 'small' = 'medium';
+
+  updateQuantitySize() {
+    if (window.innerWidth < 480) this.quantitySize = 'small';
+    else this.quantitySize = 'medium';
+  }
+
   quantity = computed(() => this.cartItem()?.quantity || 1);
 
   onQuantityChange(newQuantity: number): void {

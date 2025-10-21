@@ -8,7 +8,7 @@
   padding: 0.5rem;
   background: var(--grey-color);
 
-  &.small {
+  &.medium {
     width: 126px;
     height: 40px;
     border-radius: 62px;
@@ -24,6 +24,25 @@
       width: 36px;
       font-size: 0.9rem;
       padding: 0 0.5rem;
+    }
+  }
+
+  &.small {
+    width: 100px;
+    height: 36px;
+    border-radius: 62px;
+    padding: 0.2rem;
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      font-size: 1rem;
+    }
+
+    .quantity {
+      width: 20px;
+      font-size: 0.9rem;
+      padding: 0 0.2rem;
     }
   }
 

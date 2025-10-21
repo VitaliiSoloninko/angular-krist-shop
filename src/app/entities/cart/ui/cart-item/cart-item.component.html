@@ -30,7 +30,7 @@
           [quantity]="quantity()"
           [minQuantity]="1"
           [maxQuantity]="item.maxQuantity || 100"
-          size="small"
+          [size]="quantitySize"
           (quantityChange)="onQuantityChange($event)"
         ></app-quantity-control>
       </div>
