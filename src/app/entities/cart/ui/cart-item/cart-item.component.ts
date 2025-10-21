@@ -1,5 +1,6 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, computed, input, output } from '@angular/core';
+import { Component, computed, inject, input, output } from '@angular/core';
+import { Router } from '@angular/router';
 import { QuantityControlComponent } from '../../../../shared/ui/quantity-control/quantity-control.component';
 import { CartItem } from '../../model/cart-item';
 
@@ -13,12 +14,19 @@ export class CartItemComponent {
   cartItem = input<CartItem>();
   quantityChanged = output<{ id: string; quantity: number }>();
   itemRemoved = output<string>();
-
-  quantitySize: 'medium' | 'small' = 'medium';
+  quantitySize: 'big' | 'medium' | 'small' = 'medium';
+  private router = inject(Router);
 
   updateQuantitySize() {
     if (window.innerWidth < 480) this.quantitySize = 'small';
     else this.quantitySize = 'medium';
+  }
+
+  goToProductDetail() {
+    const item = this.cartItem();
+    if (item) {
+      this.router.navigate(['/product', item.product.id]);
+    }
   }
 
   quantity = computed(() => this.cartItem()?.quantity || 1);
