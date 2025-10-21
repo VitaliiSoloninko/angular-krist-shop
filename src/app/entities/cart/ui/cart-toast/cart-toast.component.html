@@ -1,9 +1,11 @@
 @if (isOpen()) {
 <div class="cart-toast">
   <div class="cart-toast-content">
-    <span class="cart-toast-icon">&#10003;</span>
+    <div class="mark">
+      <img src="/images/svg/mark.svg" alt="mark" />
+    </div>
     <span class="cart-toast-text">Added to cart!</span>
-    <button class="cart-toast-btn" (click)="onCheckout()">Check Out</button>
   </div>
+  <button class="cart-toast-btn" (click)="onCheckout()">Check Out</button>
 </div>
 }

@@ -3,12 +3,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PRODUCTS_DATA } from '../../../data/products.data';
 import { CartService } from '../../../entities/cart/api/cart.service';
+import { CartToastComponent } from '../../../entities/cart/ui/cart-toast/cart-toast.component';
 import { Product } from '../../../entities/product/model/product';
 import { GrayLineComponent } from '../../../shared/ui/gray-line/gray-line.component';
-import { ModalComponent } from '../../../shared/ui/modal/modal.component';
 import { QuantityControlComponent } from '../../../shared/ui/quantity-control/quantity-control.component';
 import { SizeSelectorComponent } from '../../../shared/ui/size-selector/size-selector.component';
-import { CartToastComponent } from '../../../entities/cart/ui/cart-toast/cart-toast.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,7 +16,6 @@ import { CartToastComponent } from '../../../entities/cart/ui/cart-toast/cart-to
     SizeSelectorComponent,
     QuantityControlComponent,
     GrayLineComponent,
-    ModalComponent,
     CartToastComponent,
   ],
   templateUrl: './product-detail.component.html',
