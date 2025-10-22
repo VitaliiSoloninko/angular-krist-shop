@@ -17,6 +17,11 @@ export class CartItemComponent {
   quantitySize: 'big' | 'medium' | 'small' = 'medium';
   private router = inject(Router);
 
+  constructor() {
+    this.updateQuantitySize();
+    window.addEventListener('resize', this.updateQuantitySize.bind(this));
+  }
+
   updateQuantitySize() {
     if (window.innerWidth < 480) this.quantitySize = 'small';
     else this.quantitySize = 'medium';
