@@ -11,18 +11,34 @@ export class CartService {
   // Computed signal for cart summary
   private cartSummary = computed(() => {
     const items = this.cartItems();
+
+    // Calculates subtotal (oldPrice if exists, otherwise price)
     const subtotal = items.reduce(
-      (sum, item) => sum + item.product.price * item.quantity,
+      (sum, item) =>
+        sum + (item.product.oldPrice ?? item.product.price) * item.quantity,
       0
     );
-    const deliveryFee = 15;
-    const discount = 0; // no discounts yet
-    const discountPercentage = 0;
-    const total = subtotal - discount + deliveryFee;
+
+    // Calculates total discount across all items
+    const totalDiscount = items.reduce((sum, item) => {
+      if (item.product.oldPrice && item.product.oldPrice > item.product.price) {
+        return (
+          sum + (item.product.oldPrice - item.product.price) * item.quantity
+        );
+      }
+      return sum;
+    }, 0);
+
+    // Calculates discount percentage
+    const discountPercentage =
+      subtotal > 0 ? Math.round((totalDiscount / subtotal) * 100) : 0;
+
+    const deliveryFee = 10;
+    const total = subtotal - totalDiscount + deliveryFee;
 
     return {
       subtotal,
-      discount,
+      discount: totalDiscount,
       discountPercentage,
       deliveryFee,
       total,

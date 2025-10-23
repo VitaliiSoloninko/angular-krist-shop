@@ -5,25 +5,32 @@
   <div class="summary-details">
     <div class="summary-row">
       <span>Subtotal</span>
-      <span class="amount">${{ cartSummary()!.subtotal }}</span>
+      <span class="amount">{{
+        cartSummary()!.subtotal | currency : "EUR" : "symbol" : "1.2-2"
+      }}</span>
     </div>
 
     @if (cartSummary()!.discount > 0) {
     <div class="summary-row discount">
       <span
-        >Discount @if (cartSummary()!.discountPercentage) {(-{{
+        >Discount @if (cartSummary()!.discountPercentage) {( -{{
           cartSummary()!.discountPercentage
-        }}%)}</span
+        }}% )}</span
       >
       <span class="amount discount-amount"
-        >-${{ cartSummary()!.discount }}</span
+        >-
+        {{
+          cartSummary()!.discount | currency : "EUR" : "symbol" : "1.2-2"
+        }}</span
       >
     </div>
     }
 
     <div class="summary-row">
       <span>Delivery Fee</span>
-      <span class="amount">${{ cartSummary()!.deliveryFee }}</span>
+      <span class="amount">{{
+        cartSummary()!.deliveryFee | currency : "EUR" : "symbol" : "1.2-2"
+      }}</span>
     </div>
   </div>
 
@@ -31,9 +38,14 @@
 
   <div class="summary-row total">
     <span>Total</span>
-    <span class="amount total-amount">${{ cartSummary()!.total }}</span>
+    <span class="amount total-amount">{{
+      cartSummary()!.total | currency : "EUR" : "symbol" : "1.2-2"
+    }}</span>
   </div>
   }
 
-  <button class="checkout-btn" (click)="onCheckout()">Go to Checkout →</button>
+  <button class="checkout-btn" (click)="onCheckout()">
+    Go to Checkout
+    <span> <img src="/images/svg/arrow-right-bold.svg" alt="→" /></span>
+  </button>
 </div>

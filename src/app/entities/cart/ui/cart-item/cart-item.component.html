@@ -24,7 +24,18 @@
       </div>
     </div>
     <div class="item-bottom">
-      <div class="item-price">{{ item.product.price | currency }}</div>
+      <div class="price-section">
+        <span class="current-price">{{
+          item.product.price | currency : "EUR" : "symbol" : "1.2-2"
+        }}</span>
+        @if (item.product.oldPrice) {
+        <span class="original-price">{{
+          item.product.oldPrice | currency : "EUR" : "symbol" : "1.2-2"
+        }}</span>
+        } @if (item.product.discount) {
+        <span class="discount">-{{ item.product.discount }}%</span>
+        }
+      </div>
       <div class="quantity">
         <app-quantity-control
           [quantity]="quantity()"
