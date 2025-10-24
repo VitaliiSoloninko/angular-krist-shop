@@ -10,6 +10,7 @@ import { ProductDetailPageComponent } from './pages/product-detail-page/product-
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { EmptyStateTestComponent } from './pages/test-pages/empty-state-test/empty-state-test.component';
 import { ModalTestComponent } from './pages/test-pages/modal-test/modal-test.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,7 @@ export const routes: Routes = [
       { path: 'catalog', component: ProductCatalogPageComponent },
       { path: 'product/:id', component: ProductDetailPageComponent },
       { path: 'cart', component: CartPageComponent },
+      { path: 'checkout', component: CheckoutPageComponent },
       { path: 'favorites', component: FavoritesPageComponent },
       { path: 'profile', component: ProfilePageComponent },
       { path: 'modal', component: ModalTestComponent },

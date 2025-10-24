@@ -1,0 +1,145 @@
+/* filepath: /Users/admin/Desktop/WEB/2 Angular/angular-projects/angular-krist-shop/src/app/pages/checkout-page/checkout-page.component.scss */
+.checkout-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.checkout-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+.checkout-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.checkout-form {
+  flex: 2;
+  background: #fff;
+  border-radius: 1.25rem;
+  border: 1px solid var(--grey-light-color, #eee);
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+  .form-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      padding: 0.7rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s;
+      &:focus {
+        border-color: #000;
+      }
+    }
+  }
+
+  .payment-methods {
+    flex-direction: row;
+    gap: 2rem;
+    label {
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      input {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .place-order-btn {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 1rem 0;
+    background: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    &:hover {
+      background: #222;
+    }
+  }
+}
+
+.checkout-summary {
+  flex: 1;
+  background: #fff;
+  border-radius: 1.25rem;
+  border: 1px solid var(--grey-light-color, #eee);
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+
+    &.discount {
+      color: #e53935;
+      font-weight: 600;
+    }
+
+    &.total {
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-top: 1.5rem;
+    }
+  }
+
+  .discount-amount {
+    color: #e53935;
+    font-weight: 700;
+  }
+
+  .total-amount {
+    color: #000;
+    font-weight: 900;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 1.5rem 0;
+  }
+}
