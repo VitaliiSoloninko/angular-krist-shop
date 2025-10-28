@@ -1,7 +1,7 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { CartSummary } from '../../../entities/cart/model/cart-item';
 import { GrayLineComponent } from '../../../shared/ui/gray-line/gray-line.component';
-import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-order-summary',
@@ -12,6 +12,7 @@ import { CurrencyPipe } from '@angular/common';
 export class OrderSummaryComponent {
   cartSummary = input<CartSummary | null>(null);
   checkoutClicked = output<void>();
+  buttonText = input<string>('Go to Checkout');
 
   onCheckout(): void {
     this.checkoutClicked.emit();

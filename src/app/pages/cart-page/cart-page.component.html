@@ -25,6 +25,7 @@
     <div class="order-summary-section">
       <app-order-summary
         [cartSummary]="cartSummary"
+        [buttonText]="'Go to Checkout'"
         (checkoutClicked)="onCheckout()"
       ></app-order-summary>
     </div>
