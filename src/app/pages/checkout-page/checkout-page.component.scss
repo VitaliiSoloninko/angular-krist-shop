@@ -2,42 +2,40 @@
   max-width: 1240px;
   margin: 0 auto;
 }
-.checkout-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 32px;
-}
+
 .checkout-content {
   display: flex;
   gap: 40px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 24px;
+  }
 }
+
 .checkout-left {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--grey-light-color);
+  border-radius: 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem 1rem;
+    border-radius: 0.75rem;
+  }
 }
+
 .checkout-right {
   flex: 1;
 }
 .checkout-section {
   margin-bottom: 32px;
-}
-.section-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.card-form input {
-  display: block;
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  font-size: 1rem;
-}
-
-.payment-methods {
-  display: flex;
-  gap: 24px;
-  margin-bottom: 16px;
 }

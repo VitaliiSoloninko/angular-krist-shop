@@ -6,13 +6,13 @@ input {
   font-size: 1rem;
   font: inherit;
   border-radius: 10px;
-  border: 1px solid var(--primary-color);
+  border: 1px solid #e0e0e0;
   transition: box-shadow 0.3s ease;
 }
 
 input::placeholder {
-  color: var(--grey-light-color);
-  font-size: 0.95rem;
+  color: gray;
+  font-size: 1rem;
 }
 
 input:hover {

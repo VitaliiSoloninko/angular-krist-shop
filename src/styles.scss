@@ -71,6 +71,27 @@ button {
 }
 
 // My styles
+.h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #000;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+}
+
+.h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color, #000);
+}
+
 .center {
   text-align: center;
 }

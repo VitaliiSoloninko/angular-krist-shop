@@ -1,17 +1,37 @@
 <form class="address-form" [formGroup]="addressForm">
   <div class="control">
-    <input formControlName="fullName" type="text" placeholder="Full Name" />
+    <app-text-input
+      [control]="addressForm.get('fullName')!"
+      type="text"
+      label="Full Name"
+    />
   </div>
   <div class="control">
-    <input formControlName="street" type="text" placeholder="Street Address" />
+    <app-text-input
+      [control]="addressForm.get('street')!"
+      type="text"
+      label="Street Address"
+    />
   </div>
   <div class="control">
-    <input formControlName="city" type="text" placeholder="City" />
+    <app-text-input
+      [control]="addressForm.get('city')!"
+      type="text"
+      label="City"
+    />
   </div>
   <div class="control">
-    <input formControlName="postalCode" type="text" placeholder="Postal Code" />
+    <app-text-input
+      [control]="addressForm.get('postalCode')!"
+      type="text"
+      label="Postal Code"
+    />
   </div>
   <div class="control">
-    <input formControlName="country" type="text" placeholder="Country" />
+    <app-text-input
+      [control]="addressForm.get('country')!"
+      type="text"
+      label="Country"
+    />
   </div>
 </form>

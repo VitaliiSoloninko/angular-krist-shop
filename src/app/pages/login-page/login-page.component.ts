@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthFormData } from '../../widgets/auth-form/auth-form.component';
-import { LoginFormComponent } from '../../widgets/forms/login-form/login-form.component';
+import { LoginFormComponent } from '../../widgets/user/login-form/login-form.component';
 
 @Component({
   selector: 'app-login-page',

@@ -5,11 +5,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { TextInputComponent } from '../../../../shared/ui/inputs/text-input/text-input.component';
 import { UserAddress } from '../../model/user-address';
 
 @Component({
   selector: 'app-address-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, TextInputComponent],
   templateUrl: './address-form.component.html',
   styleUrl: './address-form.component.scss',
 })

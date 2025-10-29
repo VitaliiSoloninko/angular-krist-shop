@@ -1,31 +1,18 @@
 <div class="checkout-container">
-  <h1 class="checkout-title">Checkout</h1>
+  <h1 class="h1 mb-16">Checkout</h1>
   <div class="checkout-content">
     <div class="checkout-left">
       <section class="checkout-section">
-        <h2 class="section-title">Shipping Address</h2>
+        <h2 class="h2 mb-24">Shipping Address</h2>
         <app-address-form
           (addressChange)="onAddressChange($event)"
         ></app-address-form>
-      </section>
-      <section class="checkout-section">
-        <h2 class="section-title">Payment Method</h2>
-        <div class="payment-methods">
-          <label><input type="radio" name="payment" /> Credit Card</label>
-          <label><input type="radio" name="payment" /> PayPal</label>
-          <label><input type="radio" name="payment" /> Apple Pay</label>
-        </div>
-        <div class="card-form">
-          <input type="text" placeholder="Card Number" />
-          <input type="text" placeholder="MM/YY" />
-          <input type="text" placeholder="CVV" />
-        </div>
       </section>
     </div>
     <div class="checkout-right">
       <app-order-summary
         [cartSummary]="cartSummary"
-        [buttonText]="'Place Order'"
+        [buttonText]="'Go to Payment'"
         (checkoutClicked)="onCheckout()"
       ></app-order-summary>
     </div>
