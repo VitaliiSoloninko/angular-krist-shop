@@ -1,1 +1,15 @@
-<p>home-page works!</p>
+<h1 class="h1 mb-24 center">NEW ARRIVALS</h1>
+<div class="mb-72">
+  <app-product-list
+    [products]="newProducts"
+    (productClick)="navigateToProduct($event)"
+  ></app-product-list>
+</div>
+
+<h1 class="h1 mb-24 center">TOP RATED</h1>
+<div class="mb-72">
+  <app-product-list
+    [products]="topRatedProducts"
+    (productClick)="navigateToProduct($event)"
+  ></app-product-list>
+</div>

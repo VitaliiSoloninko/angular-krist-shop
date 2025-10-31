@@ -7,14 +7,25 @@
     >
     </app-burger-menu>
   </div>
-  <a class="logo" routerLink="/catalog">
+  <a class="logo" routerLink="/">
     <img src="/images/svg/logo-small.svg" alt="Logo" />
   </a>
   <nav class="main-menu">
-    <a class="menu-link" routerLink="/catalog" routerLinkActive="active">Man</a>
-    <a class="menu-link" routerLink="/modal" routerLinkActive="active">Frau</a>
+    <a
+      class="menu-link"
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a class="menu-link" routerLink="/catalog" routerLinkActive="active"
+      >Catalog</a
+    >
+    <a class="menu-link" routerLink="/modal" routerLinkActive="active"
+      >Test Modals</a
+    >
     <a class="menu-link" routerLink="/empty-state" routerLinkActive="active"
-      >Kind</a
+      >Test State</a
     >
   </nav>
   <div class="header-actions">

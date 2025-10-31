@@ -2,7 +2,7 @@ import { Product } from '../entities/product/model/product';
 const imgUrl = '/images/products/';
 
 export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
-  count: 2,
+  count: 33,
   rows: [
     {
       id: 1,
@@ -14,6 +14,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 1,
       brandId: 1,
+      createdAt: '2024-06-01T10:00:00Z',
     },
     {
       id: 2,
@@ -25,6 +26,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 2,
       brandId: 2,
+      createdAt: '2024-06-02T10:00:00Z',
     },
     {
       id: 3,
@@ -36,6 +38,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 30,
       typeId: 1,
       brandId: 2,
+      createdAt: '2024-06-03T10:00:00Z',
     },
     {
       id: 4,
@@ -47,6 +50,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 20,
       typeId: 2,
       brandId: 1,
+      createdAt: '2024-06-04T10:00:00Z',
     },
     {
       id: 5,
@@ -58,6 +62,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 1,
       brandId: 1,
+      createdAt: '2024-06-05T10:00:00Z',
     },
     {
       id: 6,
@@ -69,6 +74,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 30,
       typeId: 1,
       brandId: 1,
+      createdAt: '2024-06-06T10:00:00Z',
     },
     {
       id: 7,
@@ -80,6 +86,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 20,
       typeId: 1,
       brandId: 1,
+      createdAt: '2024-06-07T10:00:00Z',
     },
     {
       id: 8,
@@ -91,6 +98,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 1,
       brandId: 1,
+      createdAt: '2024-06-08T10:00:00Z',
     },
     {
       id: 9,
@@ -102,6 +110,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 1,
       brandId: 1,
+      createdAt: '2024-06-09T10:00:00Z',
     },
     {
       id: 10,
@@ -113,6 +122,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 20,
       typeId: 2,
       brandId: 3,
+      createdAt: '2024-06-10T10:00:00Z',
     },
     {
       id: 11,
@@ -124,6 +134,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 2,
       brandId: 2,
+      createdAt: '2024-06-11T10:00:00Z',
     },
     {
       id: 12,
@@ -135,6 +146,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 40,
       typeId: 2,
       brandId: 1,
+      createdAt: '2024-06-12T10:00:00Z',
     },
     {
       id: 13,
@@ -146,6 +158,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 2,
       brandId: 4,
+      createdAt: '2024-06-13T10:00:00Z',
     },
     {
       id: 14,
@@ -157,6 +170,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 30,
       typeId: 1,
       brandId: 1,
+      createdAt: '2024-06-14T10:00:00Z',
     },
     {
       id: 15,
@@ -168,6 +182,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 30,
       typeId: 2,
       brandId: 2,
+      createdAt: '2024-06-15T10:00:00Z',
     },
     {
       id: 16,
@@ -179,6 +194,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 2,
       brandId: 3,
+      createdAt: '2024-06-16T10:00:00Z',
     },
     {
       id: 17,
@@ -190,6 +206,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 1,
       brandId: 2,
+      createdAt: '2024-06-17T10:00:00Z',
     },
     {
       id: 18,
@@ -201,6 +218,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 20,
       typeId: 2,
       brandId: 1,
+      createdAt: '2024-06-18T10:00:00Z',
     },
     {
       id: 19,
@@ -212,6 +230,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 1,
       brandId: 4,
+      createdAt: '2024-06-19T10:00:00Z',
     },
     {
       id: 20,
@@ -223,6 +242,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 30,
       typeId: 1,
       brandId: 3,
+      createdAt: '2024-06-20T10:00:00Z',
     },
     {
       id: 21,
@@ -234,6 +254,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 2,
       brandId: 2,
+      createdAt: '2024-06-21T10:00:00Z',
     },
     {
       id: 22,
@@ -245,6 +266,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 30,
       typeId: 1,
       brandId: 1,
+      createdAt: '2024-06-22T10:00:00Z',
     },
     {
       id: 23,
@@ -256,6 +278,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 1,
       brandId: 2,
+      createdAt: '2024-06-23T10:00:00Z',
     },
     {
       id: 24,
@@ -267,6 +290,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 1,
       brandId: 4,
+      createdAt: '2024-06-24T10:00:00Z',
     },
     {
       id: 25,
@@ -278,6 +302,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 35,
       typeId: 1,
       brandId: 3,
+      createdAt: '2024-06-25T10:00:00Z',
     },
     {
       id: 26,
@@ -289,6 +314,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 1,
       brandId: 2,
+      createdAt: '2024-06-26T10:00:00Z',
     },
     {
       id: 27,
@@ -300,6 +326,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 25,
       typeId: 1,
       brandId: 4,
+      createdAt: '2024-06-27T10:00:00Z',
     },
     {
       id: 28,
@@ -311,6 +338,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 30,
       typeId: 2,
       brandId: 1,
+      createdAt: '2024-06-28T10:00:00Z',
     },
     {
       id: 29,
@@ -322,6 +350,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 1,
       brandId: 2,
+      createdAt: '2024-06-29T10:00:00Z',
     },
     {
       id: 30,
@@ -333,6 +362,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 20,
       typeId: 1,
       brandId: 3,
+      createdAt: '2024-06-30T10:00:00Z',
     },
     {
       id: 31,
@@ -344,6 +374,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 30,
       typeId: 1,
       brandId: 4,
+      createdAt: '2024-07-01T10:00:00Z',
     },
     {
       id: 32,
@@ -355,6 +386,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: null,
       typeId: 2,
       brandId: 2,
+      createdAt: '2024-07-02T10:00:00Z',
     },
     {
       id: 33,
@@ -366,6 +398,7 @@ export const PRODUCTS_DATA: { count: number; rows: Product[] } = {
       discount: 30,
       typeId: 1,
       brandId: 1,
+      createdAt: '2024-07-03T10:00:00Z',
     },
   ],
 };

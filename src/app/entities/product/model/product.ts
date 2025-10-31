@@ -8,4 +8,5 @@ export interface Product {
   discount?: number | null;
   typeId: number;
   brandId: number;
+  createdAt: string;
 }

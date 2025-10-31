@@ -17,8 +17,7 @@ export const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: '', component: ProductCatalogPageComponent },
-      { path: 'home', component: HomePageComponent },
+      { path: '', component: HomePageComponent },
       { path: 'catalog', component: ProductCatalogPageComponent },
       { path: 'product/:id', component: ProductDetailPageComponent },
       { path: 'cart', component: CartPageComponent },
