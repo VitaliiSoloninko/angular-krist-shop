@@ -9,12 +9,12 @@ body {
   --primary-color-hover: rgb(0, 0, 0, 0.8);
   --primary-color-03: rgb(0, 0, 0, 0.3);
   --primary-color-06: rgb(0, 0, 0, 0.6);
+  --grey-light-color: rgb(0, 0, 0, 0.1);
+  --grey-light-color-hover: rgb(0, 0, 0, 0.15);
   --secondary-color: rgb(25, 118, 210);
   --secondary-color-light: rgba(25, 118, 210, 0.2);
   --secondary-color-hover: #146ac0;
   --green-color: #23b122;
-  --grey-light-color: rgb(0, 0, 0, 0.1);
-  --grey-light-color-hover: rgb(0, 0, 0, 0.15);
   --grey-color: #f0f0f0;
   --grey-dark-color: rgb(0, 0, 0, 0.6);
   --red-color: #f56565;
@@ -100,6 +100,9 @@ button {
 }
 .mb-24 {
   margin-bottom: 24px;
+}
+.mb-36 {
+  margin-bottom: 36px;
 }
 .mb-72 {
   margin-bottom: 72px;

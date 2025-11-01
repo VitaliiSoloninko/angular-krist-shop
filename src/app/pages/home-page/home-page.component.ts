@@ -11,15 +11,28 @@ import { ProductListComponent } from '../../entities/product/ui/product-list/pro
   styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
-  newProducts: Product[] = [];
-  topRatedProducts: Product[] = [];
+  newArrivalsCount = 4;
+  topRatedCount = 4;
 
-  constructor(private productService: ProductService, private router: Router) {
-    this.newProducts = this.productService.getNewestProducts(4);
-    this.topRatedProducts = this.productService.getTopRatedProducts(4);
-  }
+  constructor(private productService: ProductService, private router: Router) {}
 
   navigateToProduct(product: Product) {
     this.router.navigate(['/product', product.id]);
+  }
+
+  get newProducts() {
+    return this.productService.getNewestProducts(this.newArrivalsCount);
+  }
+
+  get topRatedProducts() {
+    return this.productService.getTopRatedProducts(this.topRatedCount);
+  }
+
+  showMoreNewArrivals() {
+    this.newArrivalsCount += 4;
+  }
+
+  showMoreTopRated() {
+    this.topRatedCount += 4;
   }
 }

@@ -1,15 +1,24 @@
-<h1 class="h1 mb-24 center">NEW ARRIVALS</h1>
-<div class="mb-72">
+<h2 class="h1 mb-36 center">NEW ARRIVALS</h2>
+<div class="mb-72 product-list-home">
   <app-product-list
     [products]="newProducts"
     (productClick)="navigateToProduct($event)"
   ></app-product-list>
 </div>
+<div class="view-more">
+  <button class="view-more-btn" (click)="showMoreNewArrivals()">
+    View more
+  </button>
+</div>
 
-<h1 class="h1 mb-24 center">TOP RATED</h1>
-<div class="mb-72">
+<h2 class="h1 mb-36 center">TOP RATED</h2>
+<div class="mb-72 product-list-home">
   <app-product-list
     [products]="topRatedProducts"
     (productClick)="navigateToProduct($event)"
   ></app-product-list>
+</div>
+
+<div class="view-more">
+  <button class="view-more-btn" (click)="showMoreTopRated()">View more</button>
 </div>
