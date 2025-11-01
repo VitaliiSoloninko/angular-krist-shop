@@ -1,5 +1,7 @@
+<app-home-hero></app-home-hero>
+
 <h2 class="h1 mb-36 center">NEW ARRIVALS</h2>
-<div class="mb-72 product-list-home">
+<div class="mb-24 product-list-home">
   <app-product-list
     [products]="newProducts"
     (productClick)="navigateToProduct($event)"
@@ -12,7 +14,7 @@
 </div>
 
 <h2 class="h1 mb-36 center">TOP RATED</h2>
-<div class="mb-72 product-list-home">
+<div class="mb-24 product-list-home">
   <app-product-list
     [products]="topRatedProducts"
     (productClick)="navigateToProduct($event)"

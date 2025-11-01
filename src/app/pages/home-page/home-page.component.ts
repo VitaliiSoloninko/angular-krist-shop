@@ -3,10 +3,11 @@ import { Router } from '@angular/router';
 import { ProductService } from '../../entities/product/api/product.service';
 import { Product } from '../../entities/product/model/product';
 import { ProductListComponent } from '../../entities/product/ui/product-list/product-list.component';
+import { HomeHeroComponent } from './ui/home-hero/home-hero.component';
 
 @Component({
   selector: 'app-home-page',
-  imports: [ProductListComponent],
+  imports: [ProductListComponent, HomeHeroComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
