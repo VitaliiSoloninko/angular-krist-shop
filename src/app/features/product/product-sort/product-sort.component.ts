@@ -16,5 +16,7 @@ export class ProductSortComponent {
     { value: 'price-desc', label: 'Price: High to Low' },
     { value: 'name-asc', label: 'Name: A → Z' },
     { value: 'name-desc', label: 'Name: Z → A' },
+    { value: 'rating-desc', label: 'Rating: High to Low' },
+    { value: 'newest', label: 'Newest' },
   ];
 }

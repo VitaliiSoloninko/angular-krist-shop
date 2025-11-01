@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { debounceTime, Subject, Subscription } from 'rxjs';
-import { BRANDS } from '../../../data/brands.data';
 import { FILTER_GROUPS } from '../../../data/filter-groups.data';
-import { PRODUCTS_DATA } from '../../../data/products.data';
-import { TYPES } from '../../../data/types.data';
+import { ProductService } from '../../../entities/product/api/product.service';
 import { Product } from '../../../entities/product/model/product';
 import { ProductListComponent } from '../../../entities/product/ui/product-list/product-list.component';
 import { ProductFiltersComponent } from '../../../features/product/product-filters/product-filters.component';
@@ -29,11 +27,14 @@ import { ModalComponent } from '../../../shared/ui/modal/modal.component';
   styleUrl: './products-catalog.component.scss',
 })
 export class ProductsCatalogComponent {
-  constructor(private router: Router) {}
+  private router = inject(Router);
+  private productService = inject(ProductService);
+  allProducts = this.productService.getAllProducts();
+
   navigateToProduct(product: Product) {
     this.router.navigate(['/product', product.id]);
   }
-  // -------------------- FILTERS --------------------
+  // --- FILTERS ---
   filterGroups = FILTER_GROUPS;
   selectedFilters: { [key: string]: string } = {};
 
@@ -48,7 +49,7 @@ export class ProductsCatalogComponent {
     this.currentPage = 1;
   }
 
-  // -------------------- FILTERS MODAL --------------------
+  // --- FILTERS MODAL ----
   showFiltersModal = false;
 
   openFiltersModal() {
@@ -63,7 +64,7 @@ export class ProductsCatalogComponent {
     this.showFiltersModal = false;
   }
 
-  // -------------------- SEARCH --------------------
+  // --- SEARCH ---
   searchValue = '';
   private searchSubject = new Subject<string>();
   private searchSub?: Subscription;
@@ -89,36 +90,19 @@ export class ProductsCatalogComponent {
     this.searchSub?.unsubscribe();
   }
 
-  // -------------------- FILTERING & SEARCHING --------------------
-  filteredProducts = PRODUCTS_DATA.rows;
+  // --- FILTERING & SEARCHING ---
+  filteredProducts = this.allProducts;
 
   applyFilters() {
-    this.filteredProducts = PRODUCTS_DATA.rows.filter((product) => {
-      // Filter by type
-      if (this.selectedFilters['type']) {
-        const type = TYPES.find((t) => t.name === this.selectedFilters['type']);
-        if (!type || product.typeId !== type.id) return false;
-      }
-      // Filter by brand
-      if (this.selectedFilters['brand']) {
-        const brand = BRANDS.find(
-          (b) => b.name === this.selectedFilters['brand']
-        );
-        if (!brand || product.brandId !== brand.id) return false;
-      }
-      // Filter by search
-      if (
-        this.searchValue &&
-        !product.name.toLowerCase().includes(this.searchValue.toLowerCase())
-      ) {
-        return false;
-      }
-      return true;
-    });
+    this.filteredProducts = this.productService.filterProducts(
+      this.allProducts,
+      this.selectedFilters,
+      this.searchValue
+    );
     this.currentPage = 1;
   }
 
-  // -------------------- PAGINATION --------------------
+  // --- PAGINATION ---
   pageSize = 12;
   currentPage = 1;
 
@@ -131,25 +115,15 @@ export class ProductsCatalogComponent {
     this.currentPage = page;
   }
 
-  // -------------------- SORTING --------------------
+  // --- SORTING ---
   sortBy: string = 'price-asc';
 
   sortProducts(sortType: string) {
     this.sortBy = sortType;
-    switch (sortType) {
-      case 'price-asc':
-        this.filteredProducts.sort((a, b) => a.price - b.price);
-        break;
-      case 'price-desc':
-        this.filteredProducts.sort((a, b) => b.price - a.price);
-        break;
-      case 'name-asc':
-        this.filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      case 'name-desc':
-        this.filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
-        break;
-    }
+    this.filteredProducts = this.productService.sortProducts(
+      this.filteredProducts,
+      sortType
+    );
     this.goToPage(1);
   }
 }
