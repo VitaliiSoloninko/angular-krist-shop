@@ -29,11 +29,13 @@ export class HomePageComponent {
     return this.productService.getTopRatedProducts(this.topRatedCount);
   }
 
-  showMoreNewArrivals() {
-    this.newArrivalsCount += 4;
+  showAllNewArrivals() {
+    this.router.navigate(['/catalog'], { queryParams: { sort: 'newest' } });
   }
 
-  showMoreTopRated() {
-    this.topRatedCount += 4;
+  showAllTopRated() {
+    this.router.navigate(['/catalog'], {
+      queryParams: { sort: 'rating-desc' },
+    });
   }
 }
