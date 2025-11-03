@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, Subject, Subscription } from 'rxjs';
 import { FILTER_GROUPS } from '../../../data/filter-groups.data';
 import { ProductService } from '../../../entities/product/api/product.service';
@@ -26,14 +26,47 @@ import { ModalComponent } from '../../../shared/ui/modal/modal.component';
   templateUrl: './products-catalog.component.html',
   styleUrl: './products-catalog.component.scss',
 })
-export class ProductsCatalogComponent {
+export class ProductsCatalogComponent implements OnInit {
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
   private productService = inject(ProductService);
   allProducts = this.productService.getAllProducts();
+
+  // --- SEARCH ---
+  searchValue = '';
+  private searchSubject = new Subject<string>();
+  private searchSub?: Subscription;
+
+  ngOnInit() {
+    // Initial sort
+    this.route.queryParams.subscribe((params) => {
+      if (params['sort']) {
+        this.sortBy = params['sort'];
+      }
+      this.sortProducts(this.sortBy);
+    });
+
+    // Debounced search subscription
+    this.searchSub = this.searchSubject
+      .pipe(debounceTime(300))
+      .subscribe((value) => {
+        this.searchValue = value;
+        this.applyFilters();
+      });
+  }
+
+  onSearch(value: string) {
+    this.searchSubject.next(value);
+  }
+
+  ngOnDestroy() {
+    this.searchSub?.unsubscribe();
+  }
 
   navigateToProduct(product: Product) {
     this.router.navigate(['/product', product.id]);
   }
+
   // --- FILTERS ---
   filterGroups = FILTER_GROUPS;
   selectedFilters: { [key: string]: string } = {};
@@ -62,32 +95,6 @@ export class ProductsCatalogComponent {
 
   applyFiltersFromModal() {
     this.showFiltersModal = false;
-  }
-
-  // --- SEARCH ---
-  searchValue = '';
-  private searchSubject = new Subject<string>();
-  private searchSub?: Subscription;
-
-  ngOnInit() {
-    // Initial sort
-    this.sortProducts(this.sortBy);
-
-    // Debounced search subscription
-    this.searchSub = this.searchSubject
-      .pipe(debounceTime(300))
-      .subscribe((value) => {
-        this.searchValue = value;
-        this.applyFilters();
-      });
-  }
-
-  onSearch(value: string) {
-    this.searchSubject.next(value);
-  }
-
-  ngOnDestroy() {
-    this.searchSub?.unsubscribe();
   }
 
   // --- FILTERING & SEARCHING ---
@@ -120,6 +127,13 @@ export class ProductsCatalogComponent {
 
   sortProducts(sortType: string) {
     this.sortBy = sortType;
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { sort: sortType },
+      queryParamsHandling: 'merge',
+    });
+
     this.filteredProducts = this.productService.sortProducts(
       this.filteredProducts,
       sortType
