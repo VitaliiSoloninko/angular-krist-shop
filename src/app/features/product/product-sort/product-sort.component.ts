@@ -12,11 +12,11 @@ export class ProductSortComponent {
   sortChange = output<string>();
 
   sortOptions = [
-    { value: 'price-asc', label: 'Price: Low to High' },
-    { value: 'price-desc', label: 'Price: High to Low' },
+    { value: 'price-asc', label: 'Price ↑' },
+    { value: 'price-desc', label: 'Price ↓' },
     { value: 'name-asc', label: 'Name: A → Z' },
     { value: 'name-desc', label: 'Name: Z → A' },
-    { value: 'rating-desc', label: 'Rating: High to Low' },
+    { value: 'rating-desc', label: 'Rating: ↓' },
     { value: 'newest', label: 'Newest' },
   ];
 }

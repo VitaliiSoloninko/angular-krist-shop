@@ -43,7 +43,7 @@ export class ProductsCatalogComponent implements OnInit {
       if (params['sort']) {
         this.sortBy = params['sort'];
       }
-      this.sortProducts(this.sortBy);
+      this.applyFilters();
     });
 
     // Debounced search subscription
@@ -105,6 +105,10 @@ export class ProductsCatalogComponent implements OnInit {
       this.allProducts,
       this.selectedFilters,
       this.searchValue
+    );
+    this.filteredProducts = this.productService.sortProducts(
+      this.filteredProducts,
+      this.sortBy
     );
     this.currentPage = 1;
   }
