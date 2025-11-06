@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
+import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
 import { ProductCatalogPageComponent } from './pages/product-catalog-page/product-catalog-page.component';
