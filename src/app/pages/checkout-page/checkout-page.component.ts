@@ -4,18 +4,12 @@ import { CartService } from '../../entities/cart/api/cart.service';
 import { UserAddress } from '../../entities/user/model/user-address';
 import { UserName } from '../../entities/user/model/user-name';
 import { AddressFormComponent } from '../../entities/user/ui/address-form/address-form.component';
-import { UserFormComponent } from '../../entities/user/ui/user-form/user-form.component';
-import { OrderSummaryComponent } from '../../widgets/cart/order-summary/order-summary.component';
 import { UserNameFormComponent } from '../../entities/user/ui/user-name-form/user-name-form.component';
+import { OrderSummaryComponent } from '../../widgets/cart/order-summary/order-summary.component';
 
 @Component({
   selector: 'app-checkout-page',
-  imports: [
-    OrderSummaryComponent,
-    AddressFormComponent,
-    UserFormComponent,
-    UserNameFormComponent,
-  ],
+  imports: [OrderSummaryComponent, AddressFormComponent, UserNameFormComponent],
   templateUrl: './checkout-page.component.html',
   styleUrl: './checkout-page.component.scss',
 })
