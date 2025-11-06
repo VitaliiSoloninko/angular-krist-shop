@@ -1,0 +1,31 @@
+<footer class="mobile-footer">
+  <div class="footer__menu">
+    <nav class="footer__body">
+      <ul class="menu__list">
+        <li class="menu__item">
+          <a routerLink="/" routerLinkActive="active" class="menu__link">
+            <img src="/images/svg/house.svg" alt="Home" class="menu-icon" />
+          </a>
+        </li>
+        <li class="menu__item">
+          <a routerLink="/catalog" routerLinkActive="active" class="menu__link">
+            <img src="/images/svg/shop.svg" alt="Shop" class="menu-icon" />
+          </a>
+        </li>
+        <li class="menu__item">
+          <a routerLink="/cart" routerLinkActive="active" class="menu__link">
+            <img src="/images/svg/basket.svg" alt="Cart" class="menu-icon" />
+            @if (cartItemsCount > 0) {
+            <span class="cart-badge">{{ cartItemsCount }}</span>
+            }
+          </a>
+        </li>
+        <li class="menu__item">
+          <a routerLink="/login" routerLinkActive="active" class="menu__link">
+            <img src="/images/svg/user.svg" alt="Profile" class="menu-icon" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>
