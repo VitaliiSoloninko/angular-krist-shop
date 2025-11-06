@@ -1,13 +1,6 @@
 <form class="address-form" [formGroup]="addressForm">
   <div class="control">
     <app-text-input
-      [control]="addressForm.get('fullName')!"
-      type="text"
-      label="Full Name"
-    />
-  </div>
-  <div class="control">
-    <app-text-input
       [control]="addressForm.get('street')!"
       type="text"
       label="Street Address"

@@ -1,0 +1,16 @@
+<form class="user-name-form" [formGroup]="userNameForm">
+  <div class="control">
+    <app-text-input
+      [control]="userNameForm.get('firstName')!"
+      type="text"
+      label="First Name"
+    />
+  </div>
+  <div class="control">
+    <app-text-input
+      [control]="userNameForm.get('lastName')!"
+      type="text"
+      label="Last Name"
+    />
+  </div>
+</form>

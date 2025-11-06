@@ -20,7 +20,6 @@ export class AddressFormComponent {
 
   constructor(private fb: FormBuilder) {
     this.addressForm = this.fb.group({
-      fullName: ['', Validators.required],
       street: ['', Validators.required],
       city: ['', Validators.required],
       postalCode: ['', Validators.required],
