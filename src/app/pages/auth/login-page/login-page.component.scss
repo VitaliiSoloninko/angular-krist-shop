@@ -55,3 +55,25 @@
     padding: 1rem;
   }
 }
+
+.logo {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 16px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.logo:hover {
+  background-color: var(--secondary-color-light);
+}
+
+.logo img {
+  height: 22px;
+}
