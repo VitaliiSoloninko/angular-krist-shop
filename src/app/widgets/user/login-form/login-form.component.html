@@ -1,6 +1,11 @@
 <form class="form-login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <h1>Hallo 👋</h1>
-  <p>Please login here</p>
+  <h1>Hello 👋</h1>
+  <p>
+    Are you new here?
+    <span>
+      <a routerLink="/register" class="registration">Create an account</a></span
+    >
+  </p>
   <div class="control">
     <label for="email">E-Mail</label>
     <app-text-input
@@ -19,12 +24,6 @@
       type="password"
       label="Password"
     />
-  </div>
-
-  <div class="password">
-    <a routerLink="/forgot-password" class="registration"
-      >Passwort vergessen?</a
-    >
   </div>
 
   <button class="btn login">Login</button>

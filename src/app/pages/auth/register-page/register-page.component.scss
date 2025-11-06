@@ -1,0 +1,57 @@
+// Fullscreen layout
+:host {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; // Removing the ability to scroll
+}
+
+.register-page {
+  display: flex;
+  height: 100vh;
+}
+
+// Left side - image (50% on desktop, hidden on mobile)
+.register-left {
+  flex: 0 0 50%;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.register-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Scales the image to cover the container
+    object-position: center center;
+    display: block;
+  }
+}
+
+// Right side - register form (100% on mobile, 50% on desktop)
+.register-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #fff;
+  height: 100vh;
+  overflow-y: auto; // Enable vertical scrolling if content overflows
+
+  @media (max-width: 768px) {
+    flex: 1;
+    padding: 1.5rem;
+    height: 100vh;
+  }
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
+}

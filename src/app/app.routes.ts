@@ -3,6 +3,7 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
 import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
+import { RegisterPageComponent } from './pages/auth/register-page/register-page.component';
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
@@ -34,4 +35,5 @@ export const routes: Routes = [
   },
 
   { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
 ];
