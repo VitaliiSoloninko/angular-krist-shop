@@ -25,9 +25,7 @@
   <div class="header-actions">
     <a class="header-icon" routerLink="/cart">
       <img src="/images/svg/basket.svg" alt="Basket" />
-      @if (cartItemsCount > 0) {
-      <span class="cart-badge">{{ cartItemsCount }}</span>
-      }
+      <app-badge [count]="cartItemsCount"></app-badge>
     </a>
     <a class="header-icon" routerLink="/login">
       <img src="/images/svg/user.svg" alt="User" />

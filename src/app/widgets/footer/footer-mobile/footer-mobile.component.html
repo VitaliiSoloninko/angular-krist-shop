@@ -15,9 +15,7 @@
         <li class="menu__item">
           <a routerLink="/cart" routerLinkActive="active" class="menu__link">
             <img src="/images/svg/basket.svg" alt="Cart" class="menu-icon" />
-            @if (cartItemsCount > 0) {
-            <span class="cart-badge">{{ cartItemsCount }}</span>
-            }
+            <app-badge [count]="cartItemsCount"></app-badge>
           </a>
         </li>
         <li class="menu__item">

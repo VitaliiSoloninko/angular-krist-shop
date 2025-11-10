@@ -98,36 +98,6 @@
   cursor: pointer;
 }
 
-.cart-badge {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  background: #ff4444;
-  color: white;
-  font-size: 12px;
-  min-width: 22px;
-  height: 22px;
-  border-radius: 12px;
-  padding: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  animation: bounceIn 0.3s ease;
-}
-
-@keyframes bounceIn {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 .header-icon:hover {
   background-color: var(--secondary-color-light);
   cursor: pointer;

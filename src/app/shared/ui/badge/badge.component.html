@@ -1,0 +1,9 @@
+@if (shouldShow) {
+<span
+  class="badge"
+  [class]="'badge--' + position()"
+  [style.background-color]="color()"
+>
+  {{ displayCount }}
+</span>
+}
