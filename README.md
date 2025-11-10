@@ -1,61 +1,163 @@
-# AngularKristShop
+# Angular Shop Co
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.3.
+A modern e-commerce web application built with Angular 20, featuring a complete shopping experience with product catalog, cart management, and responsive design.
 
-## Development server
+## 🛠️ Tech Stack
 
-To start a local development server, run:
+- **Framework**: Angular 20.2.4
+- **Language**: TypeScript 5.9.2
+- **Styling**: SCSS
+- **Testing**: Jest + Angular Testing Utilities
+- **State Management**: Angular Signals
+- **Routing**: Angular Router
+- **Build Tool**: @angular/build
+- **Deployment**: Firebase Hosting
+
+## ✨ Features
+
+- **Product Catalog**: Browse products with filtering by brand, type, and search
+- **Product Details**: Detailed product view with size selection and quantity control
+- **Shopping Cart**: Add/remove items, update quantities, persistent cart with localStorage
+- **Responsive Design**: Mobile-first approach with adaptive layouts
+- **User Authentication**: Login/register pages (UI ready)
+- **Checkout Flow**: Multi-step checkout process with order summary
+- **Empty States**: User-friendly empty state components
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (version 18+)
+- npm or yarn
+- Angular CLI
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
+git clone <repository-url>
+cd angular-shopco
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm start
+# or
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Open your browser and navigate to `http://localhost:4200/`
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Available Scripts
 
 ```bash
-ng generate component component-name
+npm start          # Start development server
+npm run build      # Build for production
+npm test           # Run unit tests with Jest
+npm run watch      # Build in watch mode
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📁 Project Structure
+
+```
+src/app/
+├── data/                 # Static data (products, brands, types)
+├── entities/            # Business entities
+│   ├── cart/           # Cart models, services, and UI components
+│   ├── product/        # Product models, services, and UI components
+│   └── user/           # User-related components
+├── features/           # Feature-specific components
+│   └── product/        # Product filtering, sorting, pagination
+├── pages/              # Page components
+│   ├── auth/           # Login/register pages
+│   ├── cart-page/      # Shopping cart page
+│   ├── checkout-page/  # Checkout flow
+│   ├── home-page/      # Homepage
+│   └── product-*/      # Product-related pages
+├── shared/             # Shared UI components
+│   └── ui/             # Reusable UI components
+└── widgets/            # Complex UI widgets
+    ├── auth-form/      # Authentication forms
+    ├── cart/           # Cart-related widgets
+    ├── footer/         # Footer components
+    ├── header/         # Header/navigation
+    └── product/        # Product-related widgets
+```
+
+## 🏗️ Architecture
+
+The project follows **Feature-Sliced Design** principles with a clean separation of concerns:
+
+- **Entities**: Core business logic and models
+- **Features**: Specific functionality implementations
+- **Widgets**: Complex UI components
+- **Shared**: Reusable components and utilities
+- **Pages**: Route-level components
+
+Key architectural patterns:
+
+- **Signals-based State Management**: Using Angular Signals for reactive state
+- **Standalone Components**: All components are standalone for better tree-shaking
+- **Service-based Data Layer**: Centralized data management through services
+- **Responsive Design**: Mobile-first CSS with breakpoint-based layouts
+
+## 🔧 Key Services
+
+- **ProductService**: Product data management and filtering
+- **CartService**: Shopping cart state management with localStorage persistence
+- **Responsive Design**: Automatic mobile/desktop layout switching
+
+## 🎨 Styling
+
+- SCSS with CSS custom properties
+- Mobile-first responsive design
+- Consistent spacing and typography system
+- Modular component-based styles
+
+## 🧪 Testing
+
+- Jest for unit testing
+- Angular Testing Utilities
+- Component isolation testing
+- Service testing with mocks
+
+## 🚀 Deployment
+
+The project is configured for Firebase Hosting:
 
 ```bash
-ng generate --help
+npm run build
+firebase deploy
 ```
 
-## Building
+## 📱 Responsive Design
 
-To build the project run:
+- **Mobile**: < 768px - Optimized mobile layout
+- **Tablet**: 768px - 1024px - Tablet-friendly design
+- **Desktop**: > 1024px - Full desktop experience
 
-```bash
-ng build
-```
+## 🛍️ Shopping Features
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Product browsing with search and filters
+- Add to cart with size and quantity selection
+- Cart persistence across sessions
+- Order summary with discount calculations
+- Multi-step checkout process
 
-## Running unit tests
+## 🔮 Future Enhancements
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- User authentication integration
+- Payment processing
+- Order history
+- Product reviews and ratings
+- Advanced filtering options
 
 nvm install 22
