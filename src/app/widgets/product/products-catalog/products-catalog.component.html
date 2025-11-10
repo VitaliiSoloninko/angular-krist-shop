@@ -31,9 +31,6 @@
         [products]="pagedProducts"
         (productClick)="navigateToProduct($event)"
       ></app-product-list>
-      <div class="products-count">
-        Total products: {{ filteredProducts.length }}
-      </div>
       } @else {
       <div class="no-products-message">
         <app-empty-state
