@@ -3,6 +3,7 @@
     <app-product-filters
       [filterGroups]="filterGroups"
       [selectedFilters]="selectedFilters"
+      [filteredProductsCount]="filteredProducts.length"
       (filterSelected)="onFilterSelected($event)"
       (reset)="resetFilters()"
     ></app-product-filters>
@@ -64,6 +65,7 @@
   <app-product-filters
     [filterGroups]="filterGroups"
     [selectedFilters]="selectedFilters"
+    [filteredProductsCount]="filteredProducts.length"
     (filterSelected)="onFilterSelected($event)"
     (reset)="resetFilters()"
   ></app-product-filters>

@@ -15,6 +15,7 @@ export interface FilterGroup {
 export class ProductFiltersComponent {
   filterGroups = input<FilterGroup[]>();
   selectedFilters = input<{ [key: string]: string }>();
+  filteredProductsCount = input<number>(0);
 
   filterSelected = output<{ group: string; value: string }>();
   reset = output<void>();
