@@ -38,11 +38,20 @@ export class ProductsCatalogComponent implements OnInit {
   private searchSub?: Subscription;
 
   ngOnInit() {
-    // Initial sort
+    // Initial sort and filters from query params
     this.route.queryParams.subscribe((params) => {
       if (params['sort']) {
         this.sortBy = params['sort'];
       }
+
+      // Apply filters from query params
+      this.selectedFilters = {};
+      Object.keys(params).forEach((key) => {
+        if (key !== 'sort' && params[key]) {
+          this.selectedFilters[key] = params[key];
+        }
+      });
+
       this.applyFilters();
     });
 
@@ -73,13 +82,28 @@ export class ProductsCatalogComponent implements OnInit {
 
   onFilterSelected(event: { group: string; value: string }) {
     this.selectedFilters[event.group] = event.value;
+    this.updateQueryParams();
     this.applyFilters();
   }
 
   resetFilters() {
     this.selectedFilters = {};
+    this.updateQueryParams();
     this.applyFilters();
     this.currentPage = 1;
+  }
+
+  private updateQueryParams() {
+    const queryParams: any = { ...this.selectedFilters };
+    if (this.sortBy && this.sortBy !== 'price-asc') {
+      queryParams['sort'] = this.sortBy;
+    }
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams,
+      queryParamsHandling: '',
+    });
   }
 
   // --- FILTERS MODAL ----
@@ -131,13 +155,7 @@ export class ProductsCatalogComponent implements OnInit {
 
   sortProducts(sortType: string) {
     this.sortBy = sortType;
-
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: { sort: sortType },
-      queryParamsHandling: 'merge',
-    });
-
+    this.updateQueryParams();
     this.filteredProducts = this.productService.sortProducts(
       this.filteredProducts,
       sortType

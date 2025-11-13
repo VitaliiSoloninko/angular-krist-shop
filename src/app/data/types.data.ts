@@ -26,7 +26,7 @@ export const TYPES: Type[] = [
   },
   {
     id: 4,
-    name: 'Gum',
+    name: 'Gym',
     createdAt: '2024-07-23T18:29:52.820Z',
     updatedAt: '2024-07-24T12:46:16.050Z',
   },
