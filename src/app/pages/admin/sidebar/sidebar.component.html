@@ -1,0 +1,32 @@
+<div class="sidenav" [ngClass]="isSidebarSmall() ? 'sidenav-small' : ''">
+  <div class="logo-container">
+    <button class="logo" (click)="toggleSidebarLogo()">
+      <img src="/images/svg/admin/lock.svg" alt="A" />
+    </button>
+    @if (!isSidebarSmall()){
+    <div class="logo-text">Admin panel</div>
+    <button class="btn-close" (click)="closeSidebar()">
+      <img src="/images/svg/admin/x.svg" alt="x" />
+    </button>
+    }
+  </div>
+  <div class="sidenav-nav">
+    @for (menuItem of menuItems; track $index) {
+    <li class="sidenav-nav-item">
+      <a
+        class="sidenav-nav-link"
+        [routerLink]="[menuItem.routerLink]"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="sidenav-link-icon" [class]="menuItem.icon">
+          <img [src]="menuItem.icon" alt="" />
+        </i>
+        @if (!isSidebarSmall()) {
+        <span class="sidenav-link-text">{{ menuItem.linkText }}</span>
+        }
+      </a>
+    </li>
+    }
+  </div>
+</div>

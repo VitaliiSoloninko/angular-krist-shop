@@ -23,6 +23,9 @@
     >
   </nav>
   <div class="header-actions">
+    <a class="header-icon" routerLink="/admin">
+      <img src="/images/svg/lock.svg" alt="Admin" />
+    </a>
     <a class="header-icon" routerLink="/cart">
       <img src="/images/svg/basket.svg" alt="Basket" />
       <app-badge [count]="cartItemsCount"></app-badge>

@@ -1,0 +1,24 @@
+.body {
+  width: calc(100% - 19rem);
+  margin-left: 19rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  z-index: 0;
+  position: relative;
+  top: 0;
+  transition: all 0.5s ease;
+  padding: 2rem;
+  border: 1px solid var(--grey-light-color);
+  border-radius: 20px;
+}
+
+.body-mobile {
+  width: calc(100% - 7.2rem);
+  margin-left: 7.2rem;
+}
+
+.body-pc {
+  width: calc(100% - 19rem);
+  margin-left: 19rem;
+}

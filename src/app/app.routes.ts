@@ -2,6 +2,14 @@ import { Routes } from '@angular/router';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
+import { AdminComponent } from './pages/admin/admin.component';
+import { BrandsPageComponent } from './pages/admin/brands-page/brands-page.component';
+import { DashboardPageComponent } from './pages/admin/dashboard-page/dashboard-page.component';
+import { OrdersPageComponent } from './pages/admin/orders-page/orders-page.component';
+import { ProductsPageComponent } from './pages/admin/products-page/products-page.component';
+import { SettingsPageComponent } from './pages/admin/settings-page/settings-page.component';
+import { TypesPageComponent } from './pages/admin/types-page/types-page.component';
+import { UsersPageComponent } from './pages/admin/users-page/users-page.component';
 import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/auth/register-page/register-page.component';
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
@@ -36,4 +44,19 @@ export const routes: Routes = [
 
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
+
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'products' },
+      { path: 'products', component: ProductsPageComponent },
+      { path: 'brands', component: BrandsPageComponent },
+      { path: 'types', component: TypesPageComponent },
+      { path: 'users', component: UsersPageComponent },
+      { path: 'orders', component: OrdersPageComponent },
+      { path: 'dashboard', component: DashboardPageComponent },
+      { path: 'settings', component: SettingsPageComponent },
+    ],
+  },
 ];
