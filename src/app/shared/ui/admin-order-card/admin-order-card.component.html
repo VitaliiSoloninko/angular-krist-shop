@@ -1,0 +1,97 @@
+<div class="order-card">
+  <div class="order-header">
+    <div class="order-info">
+      <h3 class="order-id">Order #{{ order.id }}</h3>
+      <div class="order-date">{{ formatDate(order.createdAt) }}</div>
+    </div>
+    <div class="order-status">
+      <select
+        class="status-select"
+        [value]="order.status"
+        (change)="onStatusChange($event)"
+        [style.backgroundColor]="getStatusColor(order.status)"
+      >
+        @for (option of statusOptions; track option.value) {
+        <option [value]="option.value">{{ option.label }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <div class="customer-info">
+    <div class="customer-header">
+      <h4>Customer Information</h4>
+    </div>
+    <div class="customer-details">
+      <div class="customer-name">
+        {{ order.user.firstName }} {{ order.user.lastName }}
+      </div>
+      <div class="customer-email">{{ order.user.email }}</div>
+      <div class="customer-address">
+        {{ order.user.street }}, {{ order.user.city }},
+        {{ order.user.postalCode }}, {{ order.user.country }}
+      </div>
+    </div>
+  </div>
+
+  <div class="order-items">
+    <div class="items-header">
+      <h4>Items ({{ order.cart.items.length }})</h4>
+    </div>
+    <div class="items-list">
+      @for (item of order.cart.items; track item.id) {
+      <div class="item-row">
+        <img
+          [src]="item.productImage"
+          [alt]="item.productName"
+          class="item-image"
+        />
+        <div class="item-details">
+          <div class="item-name">{{ item.productName }}</div>
+          <div class="item-specs">
+            Size: {{ item.selectedSize }} | Qty: {{ item.quantity }}
+          </div>
+        </div>
+        <div class="item-price">
+          <div class="price-each">${{ item.price }}</div>
+          <div class="price-total">${{ item.total }}</div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="order-summary">
+    <div class="summary-row">
+      <span>Subtotal:</span>
+      <span>${{ order.cart.summary.subtotal }}</span>
+    </div>
+    @if (order.cart.summary.discount > 0) {
+    <div class="summary-row discount">
+      <span>Discount ({{ order.cart.summary.discountPercentage }}%):</span>
+      <span>-${{ order.cart.summary.discount }}</span>
+    </div>
+    }
+    <div class="summary-row">
+      <span>Delivery Fee:</span>
+      <span>${{ order.cart.summary.deliveryFee }}</span>
+    </div>
+    <div class="summary-row total">
+      <span>Total:</span>
+      <span>${{ order.cart.summary.total }}</span>
+    </div>
+  </div>
+
+  <div class="order-actions">
+    <button class="action-btn edit-btn" (click)="onEdit()" title="Edit order">
+      <img src="/images/svg/admin/pencil.svg" alt="Edit" />
+    </button>
+    <button
+      class="action-btn delete-btn"
+      (click)="onDelete()"
+      title="Delete order"
+    >
+      <img src="/images/svg/admin/trash.svg" alt="Delete" />
+    </button>
+  </div>
+</div>

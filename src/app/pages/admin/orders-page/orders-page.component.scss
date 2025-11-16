@@ -1,0 +1,29 @@
+.orders-page {
+  background: var(--white-color);
+  min-height: 90vh;
+}
+
+.orders-container {
+  margin-bottom: 3rem;
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  text-align: center;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  color: var(--grey-color);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .orders-page {
+    padding: 1rem;
+  }
+}

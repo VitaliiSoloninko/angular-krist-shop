@@ -1,1 +1,27 @@
-<p>orders-page works!</p>
+<div class="orders-page">
+  <div class="page-header">
+    <h1 class="h1">Orders</h1>
+  </div>
+
+  <app-gray-line></app-gray-line>
+
+  <div class="orders-container">
+    @if (orders().length > 0) { @for (order of orders(); track order.id) {
+    <app-admin-order-card
+      [order]="order"
+      (edit)="onEditOrder($event)"
+      (delete)="onDeleteOrder($event)"
+      (statusChange)="onStatusChange($event)"
+    ></app-admin-order-card>
+    } } @else {
+    <div class="empty-state">
+      <p>No orders found</p>
+    </div>
+    }
+  </div>
+
+  <app-admin-add-button
+    ariaLabel="Add new order"
+    (click)="onAddOrder()"
+  ></app-admin-add-button>
+</div>
