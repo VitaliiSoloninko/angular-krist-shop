@@ -1,1 +1,18 @@
-<p>types-page works!</p>
+<div class="types-page">
+  <div class="page-header">
+    <h1 class="h1">Types</h1>
+  </div>
+
+  <app-gray-line></app-gray-line>
+
+  <app-admin-entity-list
+    [items]="types()"
+    (edit)="onEditType($event)"
+    (delete)="onDeleteType($event)"
+  ></app-admin-entity-list>
+
+  <app-admin-add-button
+    ariaLabel="Add new type"
+    (click)="onAddType()"
+  ></app-admin-add-button>
+</div>
