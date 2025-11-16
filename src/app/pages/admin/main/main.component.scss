@@ -14,11 +14,13 @@
 }
 
 .body-mobile {
-  width: calc(100% - 7.2rem);
+  width: calc(100% - 7.2rem - 1rem);
   margin-left: 7.2rem;
+  margin-right: 1rem;
 }
 
 .body-pc {
-  width: calc(100% - 19rem);
+  width: calc(100% - 19rem - 1rem);
   margin-left: 19rem;
+  margin-right: 1rem;
 }

@@ -3,7 +3,7 @@ import { EmptyStateComponent } from '../../../shared/ui/empty-state/empty-state.
 
 @Component({
   selector: 'app-brands-page',
-  imports: [EmptyStateComponent],
+  imports: [],
   templateUrl: './brands-page.component.html',
   styleUrl: './brands-page.component.scss',
 })
