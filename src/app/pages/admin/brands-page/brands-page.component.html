@@ -1,1 +1,39 @@
-<p>brands-page works!</p>
+<div class="brands-page">
+  <div class="page-header">
+    <h1 class="h1">Brands</h1>
+  </div>
+
+  <app-gray-line></app-gray-line>
+
+  <div class="brands-grid">
+    @for (brand of brands; track brand.id) {
+    <div class="brand-card">
+      <div class="brand-info">
+        <h3 class="brand-name">{{ brand.name }}</h3>
+      </div>
+      <div class="brand-actions">
+        <button
+          class="action-btn edit-btn"
+          (click)="onEditBrand(brand)"
+          title="Edit brand"
+        >
+          <img src="/images/svg/admin/pencil.svg" alt="Edit" />
+        </button>
+        <button
+          class="action-btn delete-btn"
+          (click)="onDeleteBrand(brand.id)"
+          title="Delete brand"
+        >
+          <img src="/images/svg/admin/trash.svg" alt="Delete" />
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="add-brand-container">
+    <button class="add-brand-btn" (click)="onAddBrand()" title="Add new brand">
+      <img src="/images/svg/admin/plus.svg" alt="Add" />
+    </button>
+  </div>
+</div>

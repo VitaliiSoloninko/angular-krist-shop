@@ -11,6 +11,9 @@
   padding: 2rem;
   border: 1px solid var(--grey-light-color);
   border-radius: 20px;
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 }
 
 .body-mobile {
