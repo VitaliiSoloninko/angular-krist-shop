@@ -1,8 +1,18 @@
-<app-empty-state
-  title="Page in development"
-  subtitle="Please check back later."
-  icon="heart-empty"
-  [showButton]="true"
-  buttonText="Explore Products"
-  buttonRoute="/catalog"
-></app-empty-state>
+<div class="products-page">
+  <div class="page-header">
+    <h1 class="h1">Products</h1>
+  </div>
+
+  <app-gray-line></app-gray-line>
+
+  <app-admin-entity-list
+    [items]="products()"
+    (edit)="onEditProduct($event)"
+    (delete)="onDeleteProduct($event)"
+  ></app-admin-entity-list>
+
+  <app-admin-add-button
+    ariaLabel="Add new product"
+    (click)="onAddProduct()"
+  ></app-admin-add-button>
+</div>

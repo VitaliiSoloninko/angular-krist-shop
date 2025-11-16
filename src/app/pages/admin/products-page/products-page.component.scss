@@ -1,0 +1,11 @@
+.products-page {
+  background: var(--white-color);
+  min-height: 90vh;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .products-page {
+    padding: 1rem;
+  }
+}
