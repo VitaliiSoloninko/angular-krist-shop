@@ -1,18 +1,24 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Brand, BRANDS } from '../../../data/brands.data';
+import { BRANDS } from '../../../data/brands.data';
+import { AdminEntity } from '../../../shared/models/admin-entity.model';
+import { AdminAddButtonComponent } from '../../../shared/ui/admin-add-button/admin-add-button.component';
+import { AdminEntityListComponent } from '../../../shared/ui/admin-entity-list/admin-entity-list.component';
 import { GrayLineComponent } from '../../../shared/ui/gray-line/gray-line.component';
 
 @Component({
   selector: 'app-brands-page',
-  imports: [GrayLineComponent],
+  imports: [
+    GrayLineComponent,
+    AdminEntityListComponent,
+    AdminAddButtonComponent,
+  ],
   templateUrl: './brands-page.component.html',
   styleUrl: './brands-page.component.scss',
 })
 export class BrandsPageComponent {
-  brands: Brand[] = [...BRANDS];
+  brands: AdminEntity[] = [...BRANDS];
 
-  onEditBrand(brand: Brand) {
+  onEditBrand(brand: AdminEntity) {
     console.log('Edit brand:', brand);
   }
 

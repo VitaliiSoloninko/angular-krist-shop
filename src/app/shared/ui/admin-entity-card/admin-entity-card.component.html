@@ -1,0 +1,21 @@
+<div class="entity-card">
+  <div class="entity-info">
+    <h3 class="entity-name">{{ entity().name }}</h3>
+  </div>
+  <div class="entity-actions">
+    <button
+      class="action-btn edit-btn"
+      (click)="onEdit()"
+      [title]="'Edit ' + entity.name"
+    >
+      <img src="/images/svg/admin/pencil.svg" alt="Edit" />
+    </button>
+    <button
+      class="action-btn delete-btn"
+      (click)="onDelete()"
+      [title]="'Delete ' + entity.name"
+    >
+      <img src="/images/svg/admin/trash.svg" alt="Delete" />
+    </button>
+  </div>
+</div>
