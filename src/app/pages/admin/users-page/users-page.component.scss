@@ -1,0 +1,11 @@
+.users-page {
+  background: var(--white-color);
+  min-height: 90vh;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .users-page {
+    padding: 1rem;
+  }
+}

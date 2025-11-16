@@ -1,1 +1,18 @@
-<p>users-page works!</p>
+<div class="users-page">
+  <div class="page-header">
+    <h1 class="h1">Users</h1>
+  </div>
+
+  <app-gray-line></app-gray-line>
+
+  <app-admin-entity-list
+    [items]="users()"
+    (edit)="onEditUser($event)"
+    (delete)="onDeleteUser($event)"
+  ></app-admin-entity-list>
+
+  <app-admin-add-button
+    ariaLabel="Add new user"
+    (click)="onAddUser()"
+  ></app-admin-add-button>
+</div>
