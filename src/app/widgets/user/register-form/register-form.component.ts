@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../entities/user/api/auth.service';
 import { TextInputComponent } from '../../../shared/ui/inputs/text-input/text-input.component';
 
 @Component({
@@ -18,6 +20,12 @@ export class RegisterFormComponent {
   registerForm!: FormGroup;
   isSubmitted = false;
   returnUrl = '';
+
+  isLoading = false;
+  error: string | null = null;
+
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -42,6 +50,23 @@ export class RegisterFormComponent {
   onSubmit() {
     this.isSubmitted = true;
     if (this.registerForm.invalid) return;
-    console.log(this.registerForm.value);
+    this.isLoading = true;
+    this.error = null;
+
+    const registerData = this.registerForm.value;
+
+    this.authService.register(registerData).subscribe({
+      next: () => {
+        this.isLoading = false;
+        // navigate to profile or home after registration
+        this.router.navigate(['/profile']);
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.error =
+          err?.error?.message || 'Registration failed. Please try again.';
+        console.error('Register error:', err);
+      },
+    });
   }
 }

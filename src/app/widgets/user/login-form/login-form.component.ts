@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../entities/user/api/auth.service';
 import { TextInputComponent } from '../../../shared/ui/inputs/text-input/text-input.component';
 
 @Component({
@@ -18,6 +19,13 @@ export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
   isSubmitted = false;
   returnUrl = '';
+
+  // UI state
+  isLoading = false;
+  error: string | null = null;
+
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -38,6 +46,24 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     this.isSubmitted = true;
     if (this.loginForm.invalid) return;
-    console.log(this.loginForm.value);
+
+    this.isLoading = true;
+    this.error = null;
+
+    const credentials = this.loginForm.value;
+
+    this.authService.login(credentials).subscribe({
+      next: () => {
+        this.isLoading = false;
+        // navigate to home or profile after successful login
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.error =
+          err?.error?.message || 'Login failed. Please check your credentials.';
+        console.error('Login error:', err);
+      },
+    });
   }
 }

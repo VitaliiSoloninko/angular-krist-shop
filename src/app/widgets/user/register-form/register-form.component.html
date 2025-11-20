@@ -4,6 +4,7 @@
     Already a user? Login here
     <span> <a routerLink="/login" class="registration">Login</a></span>
   </p>
+
   <div class="control">
     <label for="email">First Name</label>
     <app-text-input
@@ -42,5 +43,12 @@
     />
   </div>
 
-  <button class="btn register">Signup</button>
+  @if (error) {
+  <div class="form-error">{{ error }}</div>
+  }
+
+  <button class="btn register" [disabled]="isLoading || registerForm.invalid">
+    @if (!isLoading) { <span>Signup</span>} @if (isLoading) {
+    <span>Signing up...</span>}
+  </button>
 </form>
