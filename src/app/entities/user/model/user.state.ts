@@ -1,0 +1,194 @@
+import { computed, inject, Injectable, signal } from '@angular/core';
+import { AuthService } from '../api/auth.service';
+import { UserService } from '../api/user.service';
+import { UserProfile } from './user.model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UserState {
+  private authService = inject(AuthService);
+  private userService = inject(UserService);
+
+  // Private signals
+  private _currentUser = signal<UserProfile | null>(null);
+  private _isLoading = signal<boolean>(false);
+  private _error = signal<string | null>(null);
+
+  // Public readonly computed signals
+  readonly currentUser = this._currentUser.asReadonly();
+  readonly isLoading = this._isLoading.asReadonly();
+  readonly error = this._error.asReadonly();
+
+  // Computed derived state
+  readonly isAuthenticated = computed(() => !!this._currentUser());
+  readonly isAdmin = computed(() => this._currentUser()?.role === 'admin');
+  readonly fullName = computed(() => {
+    const user = this._currentUser();
+    return user ? user.fullName : '';
+  });
+
+  readonly userInitials = computed(() => {
+    const user = this._currentUser();
+    if (!user) return '';
+
+    const firstInitial = user.firstName.charAt(0).toUpperCase();
+    const lastInitial = user.lastName.charAt(0).toUpperCase();
+    return `${firstInitial}${lastInitial}`;
+  });
+
+  readonly hasAddress = computed(() => {
+    const user = this._currentUser();
+    return !!(user?.street && user?.city && user?.postalCode && user?.country);
+  });
+
+  constructor() {
+    // Subscribe to AuthService changes and sync with signals
+    this.authService.currentUser$.subscribe((user) => {
+      this._currentUser.set(user);
+    });
+
+    this.authService.isAuthenticated$.subscribe((isAuth) => {
+      if (!isAuth) {
+        this._currentUser.set(null);
+        this._error.set(null);
+      }
+    });
+  }
+
+  /**
+   * Initialize user state (call on app startup)
+   */
+  async initializeUserState(): Promise<void> {
+    try {
+      this._isLoading.set(true);
+      this._error.set(null);
+
+      const isInitialized = await this.authService.initializeAuth().toPromise();
+
+      if (isInitialized) {
+        await this.refreshUserData();
+      }
+    } catch (error) {
+      this._error.set('Failed to initialize user state');
+      console.error('User state initialization error:', error);
+    } finally {
+      this._isLoading.set(false);
+    }
+  }
+
+  /**
+   * Update current user data
+   */
+  setCurrentUser(user: UserProfile | null): void {
+    this._currentUser.set(user);
+    this._error.set(null);
+  }
+
+  /**
+   * Update user profile
+   */
+  async updateUserProfile(updateData: Partial<UserProfile>): Promise<void> {
+    try {
+      this._isLoading.set(true);
+      this._error.set(null);
+
+      const updatedUser = await this.userService
+        .updateProfile(updateData)
+        .toPromise();
+
+      if (updatedUser) {
+        this._currentUser.set(updatedUser);
+      }
+    } catch (error) {
+      this._error.set('Failed to update profile');
+      console.error('Update profile error:', error);
+      throw error;
+    } finally {
+      this._isLoading.set(false);
+    }
+  }
+
+  /**
+   * Refresh user data from server
+   */
+  async refreshUserData(): Promise<void> {
+    try {
+      this._isLoading.set(true);
+      this._error.set(null);
+
+      const user = await this.authService.refreshUserData().toPromise();
+
+      if (user) {
+        this._currentUser.set(user);
+      }
+    } catch (error) {
+      this._error.set('Failed to refresh user data');
+      console.error('Refresh user data error:', error);
+    } finally {
+      this._isLoading.set(false);
+    }
+  }
+
+  /**
+   * Clear user state (on logout)
+   */
+  clearUserState(): void {
+    this._currentUser.set(null);
+    this._error.set(null);
+    this._isLoading.set(false);
+  }
+
+  /**
+   * Set loading state
+   */
+  setLoading(loading: boolean): void {
+    this._isLoading.set(loading);
+  }
+
+  /**
+   * Set error state
+   */
+  setError(error: string | null): void {
+    this._error.set(error);
+  }
+
+  /**
+   * Check if user has specific role
+   */
+  hasRole(role: 'user' | 'admin'): boolean {
+    return this._currentUser()?.role === role;
+  }
+
+  /**
+   * Get user address as object
+   */
+  getUserAddress() {
+    return computed(() => {
+      const user = this._currentUser();
+      if (!user) return null;
+
+      return {
+        street: user.street,
+        city: user.city,
+        postalCode: user.postalCode,
+        country: user.country,
+      };
+    });
+  }
+
+  /**
+   * Get user name as object
+   */
+  getUserName() {
+    return computed(() => {
+      const user = this._currentUser();
+      if (!user) return null;
+
+      return {
+        firstName: user.firstName,
+        lastName: user.lastName,
+      };
+    });
+  }
+}
