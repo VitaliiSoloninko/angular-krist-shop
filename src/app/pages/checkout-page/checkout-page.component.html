@@ -2,16 +2,18 @@
   <h1 class="h1 mb-16">Checkout</h1>
   <div class="checkout-content">
     <div class="checkout-left">
-      <section class="checkout-section">
+      <div class="checkout-user-info">
         <h2 class="h2 mb-24">User Information</h2>
         <app-user-name-form
           (userNameChange)="onUserNameChange($event)"
         ></app-user-name-form>
+      </div>
+      <div class="checkout-user-info">
         <h2 class="h2 mb-24">Shipping Address</h2>
         <app-address-form
           (addressChange)="onAddressChange($event)"
         ></app-address-form>
-      </section>
+      </div>
     </div>
     <div class="checkout-right">
       <app-order-summary
