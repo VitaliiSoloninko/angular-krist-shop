@@ -1,0 +1,7 @@
+<div class="avatar" [style.width.px]="size()" [style.height.px]="size()">
+  @if (userState.userInitials()) {
+  <span class="initials">{{ userState.userInitials() }}</span>
+  } @else {
+  <img src="/images/svg/avatar-placeholder.svg" alt="Avatar" />
+  }
+</div>

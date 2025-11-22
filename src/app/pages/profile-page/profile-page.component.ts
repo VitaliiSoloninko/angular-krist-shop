@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
-import { EmptyStateComponent } from '../../shared/ui/empty-state/empty-state.component';
+import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { UserState } from '../../entities/user/model/user.state';
+import { AvatarComponent } from '../../entities/user/ui/avatar/avatar.component';
 
 @Component({
   selector: 'app-profile-page',
-  imports: [EmptyStateComponent],
+  imports: [CommonModule, AvatarComponent, RouterLink],
   templateUrl: './profile-page.component.html',
-  styleUrl: './profile-page.component.scss',
+  styleUrls: ['./profile-page.component.scss'],
 })
-export class ProfilePageComponent {}
+export class ProfilePageComponent implements OnInit {
+  userState = inject(UserState);
+
+  ngOnInit(): void {
+    // Load mock user for development/demo
+    this.userState.loadMockUser();
+  }
+}

@@ -18,6 +18,7 @@ import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
 import { ProductCatalogPageComponent } from './pages/product-catalog-page/product-catalog-page.component';
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
+import { ProfileEditPageComponent } from './pages/profile-edit-page/profile-edit-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { SuccessPageComponent } from './pages/success-page/success-page.component';
 import { EmptyStateTestComponent } from './pages/test-pages/empty-state-test/empty-state-test.component';
@@ -37,6 +38,7 @@ export const routes: Routes = [
       { path: 'success', component: SuccessPageComponent },
       { path: 'favorites', component: FavoritesPageComponent },
       { path: 'profile', component: ProfilePageComponent },
+      { path: 'profile/edit', component: ProfileEditPageComponent },
       { path: 'modal', component: ModalTestComponent },
       { path: 'empty-state', component: EmptyStateTestComponent },
     ],

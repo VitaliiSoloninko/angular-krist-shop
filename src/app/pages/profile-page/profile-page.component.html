@@ -1,7 +1,43 @@
-<app-empty-state
-  title="In development"
-  icon="blocks"
-  [showButton]="true"
-  buttonText="Go to products"
-  buttonRoute="/catalog"
-></app-empty-state>
+<h1 class="h1 mb-16">Profile</h1>
+<div class="profile-page">
+  <div class="profile-main">
+    <app-avatar [size]="120"></app-avatar>
+    <div class="profile-meta">
+      <h2>{{ userState.fullName() }}</h2>
+      <p class="email">{{ userState.currentUser()?.email }}</p>
+      <span class="role-badge" [class.admin]="userState.isAdmin()">
+        {{ userState.currentUser()?.role }}
+      </span>
+    </div>
+  </div>
+
+  @if (userState.hasAddress()) {
+  <div class="profile-address">
+    <h3 class="h2">Address</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <span class="label">Street:</span>
+        <span class="value">{{ userState.currentUser()?.street }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">City:</span>
+        <span class="value">{{ userState.currentUser()?.city }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Postal Code:</span>
+        <span class="value">{{ userState.currentUser()?.postalCode }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Country:</span>
+        <span class="value">{{ userState.currentUser()?.country }}</span>
+      </div>
+    </div>
+  </div>
+  }
+</div>
+
+<div class="profile-actions mt-24">
+  <button class="btn btn-primary" routerLink="/profile/edit">
+    Edit Profile
+  </button>
+</div>

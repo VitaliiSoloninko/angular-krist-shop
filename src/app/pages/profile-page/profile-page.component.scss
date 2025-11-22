@@ -1,0 +1,121 @@
+.profile-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .profile-main {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    border: 1px solid var(--grey-color);
+    @media (max-width: 480px) {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .profile-meta {
+      h2 {
+        margin: 0 0 8px 0;
+        font-size: 28px;
+        color: #333;
+      }
+
+      .email {
+        margin: 0 0 12px 0;
+        color: #666;
+        font-size: 16px;
+      }
+
+      .role-badge {
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 4px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        &.admin {
+          background: #fff3e0;
+          color: #f57c00;
+        }
+      }
+
+      @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .profile-address {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: #fff;
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    border: 1px solid var(--grey-color);
+
+    h3 {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--grey-color);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+      }
+
+      .info-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .label {
+          color: #777;
+        }
+      }
+    }
+
+    .profile-actions {
+      text-align: center;
+      margin-top: 30px;
+
+      .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.btn-primary {
+          background: #1976d2;
+          color: white;
+
+          &:hover {
+            background: #1565c0;
+          }
+        }
+      }
+    }
+  }
+}

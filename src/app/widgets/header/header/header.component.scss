@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   padding: 14px 0;
   height: 80px;
   background: #fff;
@@ -29,7 +30,11 @@
 
 .main-menu {
   display: flex;
-  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.5rem;
+  column-gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .burger-wrapper {

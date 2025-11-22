@@ -1,0 +1,62 @@
+<div class="profile-form">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <label>First name</label>
+        <app-text-input
+          [control]="fc.firstName"
+          [showErrorsWhen]="isSubmitted"
+          type="text"
+          label="First name"
+        />
+      </div>
+      <div class="col">
+        <label>Last name</label>
+        <app-text-input
+          [control]="fc.lastName"
+          [showErrorsWhen]="isSubmitted"
+          type="text"
+          label="Last name"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label>Street</label>
+        <app-text-input [control]="fc.street" type="text" label="Street" />
+      </div>
+      <div class="col">
+        <label>City</label>
+        <app-text-input [control]="fc.city" type="text" label="City" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label>Postal code</label>
+        <app-text-input
+          [control]="fc.postalCode"
+          type="text"
+          label="Postal code"
+        />
+      </div>
+      <div class="col">
+        <label>Country</label>
+        <app-text-input [control]="fc.country" type="text" label="Country" />
+      </div>
+    </div>
+
+    <div class="actions">
+      <button
+        class="btn"
+        [disabled]="profileForm.invalid || userState.isLoading()"
+      >
+        Save
+      </button>
+      <div *ngIf="userState.error()" class="form-error">
+        {{ userState.error() }}
+      </div>
+    </div>
+  </form>
+</div>

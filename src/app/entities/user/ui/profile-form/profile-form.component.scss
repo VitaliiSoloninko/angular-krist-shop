@@ -1,0 +1,20 @@
+.profile-form {
+  .row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .col {
+    flex: 1;
+  }
+
+  .actions {
+    margin-top: 12px;
+  }
+
+  .form-error {
+    color: var(--danger, #b00020);
+    margin-top: 8px;
+  }
+}
